@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+
+import { ProfileZone } from 'Components'
 
 class Home extends Component {
 
@@ -9,7 +10,7 @@ class Home extends Component {
         return (
             <div className='home-container'>
                 <h1>OCTOPUS FANTASY</h1>
-                <Link to='/login'><h2>LOGIN</h2></Link>
+                <ProfileZone />
             </div>
         );
     }

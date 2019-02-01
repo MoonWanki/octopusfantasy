@@ -1,18 +1,41 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions'
+import { getProfile } from 'utils/api'
 
 const initialState = {
-    loggedIn: false
+    isSignedIn: false,
+    isPending: true,
+    profile: null,
 };
 
-const CHECK_LOGIN = 'contents/CHECK_LOGIN';
+const FETCH_USER = 'user/FETCH_USER'
+const FETCH_USER_PENDING = 'user/FETCH_USER_PENDING'
+const FETCH_USER_FULFILLED = 'user/FETCH_USER_FULFILLED'
+const FETCH_USER_REJECTED = 'user/FETCH_USER_REJECTED'
 
-export const checkLogin = createAction(CHECK_LOGIN);
+export const fetchUser = createAction(FETCH_USER, () => getProfile())
 
 export default handleActions({
-    [CHECK_LOGIN]: (state, { payload }) => {
+    [FETCH_USER_PENDING]: state => {
         return {
-            loggedIn: true,
-        };
+            ...state,
+            isPending: true,
+        }
     },
-}, initialState);
+    [FETCH_USER_FULFILLED]: (state, { payload }) => {
+        return {
+            ...state,
+            isPending: false,
+            isSignedIn: true,
+            profile: payload.data
+        }
+    },
+    [FETCH_USER_REJECTED]: (state, { payload }) => {
+        return {
+            ...state,
+            isPending: false,
+            isSignedIn: false,
+            profile: null,
+        }
+    },
+}, initialState)
 
