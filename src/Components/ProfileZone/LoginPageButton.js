@@ -5,7 +5,7 @@ export default class LoginButton extends Component {
 	render() {
 		return (
 			<div>
-				<Link to='/login'>
+				<Link to={`/login?url=${encodeURIComponent(window.location.pathname)}`}>
 					<h3>LOGIN</h3>
 				</Link>
 			</div>

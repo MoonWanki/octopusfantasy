@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { ProfileZone } from 'Components'
+import { Header, ProfileZone } from 'Components'
 
 class Home extends Component {
 
@@ -8,7 +8,8 @@ class Home extends Component {
 
     render() {
         return (
-            <div className='home-container'>
+            <div>
+                <Header />
                 <h1>OCTOPUS FANTASY</h1>
                 <ProfileZone />
             </div>

@@ -1,10 +1,9 @@
 import axios from 'axios'
 
-const SERVER_URL = 'http://localhost:4000'
-
 export const signIn = (provider, code, state) => axios({
     method: 'GET',
-    url: `${SERVER_URL}/oauth/signin`,
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: '/oauth/signin',
     params: {
         'provider': provider,
         'code': code,
@@ -15,12 +14,14 @@ export const signIn = (provider, code, state) => axios({
 
 export const getProfile = () => axios({
     method: 'GET',
-    url: `${SERVER_URL}/oauth/profile`,
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: '/oauth/profile',
     withCredentials: true,
 })
 
 export const signOut = () => axios({
     method: 'GET',
-    url: `${SERVER_URL}/oauth/signout`,
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: '/oauth/signout',
     withCredentials: true,
 })

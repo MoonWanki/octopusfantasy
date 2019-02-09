@@ -25,8 +25,8 @@ export default handleActions({
         return {
             ...state,
             isPending: false,
-            isSignedIn: true,
-            profile: payload.data
+            isSignedIn: payload.status===200,
+            profile: payload.status===200 ? payload.data : null
         }
     },
     [FETCH_USER_REJECTED]: (state, { payload }) => {
