@@ -1,0 +1,75 @@
+.login-page-wrapper {
+
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/loginbg.jpg) center no-repeat lightgray;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+
+    .login-page-inner {
+
+        width: 100%;
+        height: 220px;
+        background: rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .login-page-home-button {
+            width: 200px;
+            height: 60px;
+            background: url(../images/logo_white.png) center no-repeat;
+            background-size: cover;
+        }
+
+        .login-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .login-button {
+                width: 85px;
+                height: 30px;
+                margin-bottom: 8px;
+                background: center no-repeat;
+                background-size: contain;
+            }
+
+            .login-button-naver  {
+                background-image: url(../images/naverlogin.png);
+                &:hover {
+                    background-image: url(../images/naverlogin_hover.png);
+                }
+            }
+
+            .login-button-kakao  {
+                background-image: url(../images/kakaologin.png);
+                &:hover {
+                    background-image: url(../images/kakaologin_hover.png);
+                }
+            }
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+        background-image: url(../images/loginbg_mobile.jpg);
+
+        .login-page-inner {
+            height: 160px;
+            .login-page-home-button {
+                width: 150px;
+                height: 45px;
+            }
+            .login-button-container {
+                .login-button {
+                    width: 68px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+}
+

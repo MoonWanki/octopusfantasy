@@ -19,14 +19,14 @@ class Login extends Component {
             <div className='login-page-wrapper'>
                 <div className='login-page-inner'>
                     <Link to='/'>
-                        <div className='home-button'/>
+                        <div className='login-page-home-button'/>
                     </Link>
                     <div className='login-button-container'>
                         <a href={`https://nid.naver.com/oauth2.0/authorize?client_id=${process.env.REACT_APP_NAVER_API_KEY}&redirect_uri=${REDIRECT_URI}&state=${encodeURIComponent(btoa(`provider=NAVER&url=${previousUrl}`))}&response_type=code`}>
-                            <div className='naver-login-button'/>
+                            <div className='login-button login-button-naver'/>
                         </a>
                         <a href={`https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_API_KEY}&redirect_uri=${REDIRECT_URI}&state=${encodeURIComponent(btoa(`provider=KAKAO&url=${previousUrl}`))}&response_type=code`}>
-                            <div className='kakao-login-button'/>
+                            <div className='login-button login-button-kakao'/>
                         </a>
                     </div>
                 </div>

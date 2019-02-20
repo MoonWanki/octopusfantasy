@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as userActions from 'store/modules/user'
 
-import Home from 'Containers/Home'
-import Login from 'Containers/Login'
-import About from 'Containers/About'
-import PostListContainer from 'Containers/PostListContainer'
-import LoginCallback from 'Containers/LoginCallback';
+import Home from 'Layout/Home'
+import Login from 'Layout/Login'
+import About from 'Layout/About'
+import PostContainer from 'Containers/PostContainer'
+import LoginCallback from 'Layout/LoginCallback'
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
 					<Route exact path="/" component={Home} />
 					<Route path="/login" component={Login} />
 					<Route path="/about" component={About} />
-					<Route path="/post" component={PostListContainer} />
+					<Route path="/post" component={PostContainer} />
 					<Route path="/callback" component={LoginCallback} />
 				</Switch>
 			</BrowserRouter>
