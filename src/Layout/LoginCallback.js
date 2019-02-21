@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { signIn } from 'utils/api'
 import qs from 'qs'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export default class LoginCallback extends Component {
 
@@ -29,8 +30,11 @@ export default class LoginCallback extends Component {
 
     render() {
         return (
-            <div>
-                로그인 중입니다. 잠시만 기다려주세요.
+            <div style={{ width: '100vw', height: '100vh', display: 'table' }}>
+                <div style={{ display: 'table-cell', verticalAlign: 'middle', textAlign: 'center' }}>
+                    <CircularProgress />
+                    <p style={{ color: 'gray', marginTop: '24px' }}>로그인 중입니다. 잠시만 기다려주세요</p>
+                </div>
             </div>
         )
     }

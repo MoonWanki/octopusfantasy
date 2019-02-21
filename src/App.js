@@ -7,7 +7,7 @@ import * as userActions from 'store/modules/user'
 import Home from 'Layout/Home'
 import Login from 'Layout/Login'
 import About from 'Layout/About'
-import PostContainer from 'Containers/PostContainer'
+import PostContainer from 'Layout/PostContainer'
 import LoginCallback from 'Layout/LoginCallback'
 
 class App extends Component {
