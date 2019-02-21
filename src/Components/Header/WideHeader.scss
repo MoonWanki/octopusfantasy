@@ -1,6 +1,6 @@
 @mixin opaque {
     background: white;
-    p {
+    .nav-item-text {
         color: #757575;
     }
     .wide-header-inner {
@@ -19,7 +19,7 @@
     background: transparent;
     transition: background-color 0.2s;
 
-    p {
+    .nav-item-text {
         color: white;
         font-weight: 500;
     }
@@ -30,6 +30,7 @@
 
     .wide-header-inner {
         margin: auto;
+        padding: 0 30px;
         max-width: 1200px;
         display: flex;
         justify-content: space-between;

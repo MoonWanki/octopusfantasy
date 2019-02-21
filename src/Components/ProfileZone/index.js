@@ -20,13 +20,13 @@ export class ProfileZone extends Component {
 		// if not signed in
 		else {
 			if(this.props.mobile) { // mobile: power button
-				return <IconButton component={Link} to={`/login?url=${encodeURIComponent(window.location.pathname)}`} style={{ margin: 5, padding: 10 }}><Icon style={{ fontSize: 20 }}>power_settings_new</Icon></IconButton>
+				return <IconButton component={Link} to={`/login?url=${encodeURIComponent(window.location.pathname)}`} style={{ margin: 10, padding: 10 }}><Icon style={{ fontSize: 20 }}>power_settings_new</Icon></IconButton>
 			}
 			else { // desktop: login box
 				return (
 					<Link to={`/login?url=${encodeURIComponent(window.location.pathname)}`}>
 						<Tooltip disableFocusListener disableTouchListener title="회원가입이 필요 없어요!">
-							<p style={{ padding: '4px 16px' }}>LOGIN</p>
+							<p className='nav-item-text' style={{ padding: '4px 16px' }}>LOGIN</p>
 						</Tooltip>
 					</Link>
 				)

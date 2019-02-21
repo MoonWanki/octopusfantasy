@@ -26,10 +26,10 @@ export default class WideHeader extends Component {
                     <div className='wide-header-nav' style={{  }}>
                         <Link to='/'><div className='wide-header-logo' /></Link>
                         <div className='wide-header-nav-item wide-header-nav-item-products'>
-                            <p>PRODUCTS</p>
+                            <p className='nav-item-text'>PRODUCTS</p>
                             <div className='wide-header-products-menu' />
                         </div>
-                        <Link to='/about'><div className='wide-header-nav-item'><p>ABOUT</p></div></Link>
+                        <Link to='/about'><div className='wide-header-nav-item'><p className='nav-item-text'>ABOUT</p></div></Link>
                     </div>
                     <ProfileZone />
                 </div>

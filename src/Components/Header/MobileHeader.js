@@ -20,7 +20,7 @@ export default class MobileHeader extends Component {
         return (
             <Fragment>
                 <div className='mobile-header'>
-                    <IconButton style={{ margin: 5, padding: 10 }} onClick={() => this.setState({ sidebarOn: !sidebarOn })}>
+                    <IconButton style={{ margin: 10, padding: 10 }} onClick={() => this.setState({ sidebarOn: !sidebarOn })}>
                         <Icon style={{ fontSize: 20 }} >{sidebarOn ? 'close' : 'menu'}</Icon>
                     </IconButton>
                     <Link to='/'><div className='mobile-header-logo' /></Link>
