@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Footer } from '../Components';
+import { Header, Footer } from 'Components';
 import './About.scss';
 
 class About extends Component {
@@ -9,8 +9,9 @@ class About extends Component {
     render() {
         return (
             <Fragment>
+                <Header />
                 <div className='about-page-wrapper'>
-                    <p className='about-page-inner'>페이지 준비중입니다.</p>
+                    <div className='about-page-inner'>페이지 준비중입니다.</div>
                 </div>
                 <Footer />
             </Fragment>

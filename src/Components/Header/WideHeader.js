@@ -15,12 +15,21 @@ export default class WideHeader extends Component {
 
     onScroll = () => this.setState({ opaque: window.scrollY > 0 })
 
+    componentWillUnmount() {
+        window.onscroll = null
+    }
+
     render() {
         return (
             <div className={this.state.opaque ? 'wide-header wide-header-opaque' : 'wide-header'}>
                 <div className='wide-header-inner'>
-                    <div style={{ display: 'flex' }}>
+                    <div className='wide-header-nav' style={{  }}>
                         <Link to='/'><div className='wide-header-logo' /></Link>
+                        <div className='wide-header-nav-item wide-header-nav-item-products'>
+                            <p>PRODUCTS</p>
+                            <div className='wide-header-products-menu' />
+                        </div>
+                        <Link to='/about'><div className='wide-header-nav-item'><p>ABOUT</p></div></Link>
                     </div>
                     <ProfileZone />
                 </div>

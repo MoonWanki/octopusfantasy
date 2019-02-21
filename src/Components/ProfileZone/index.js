@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import ProfileMenu from './ProfileMenu'
 import Icon from '@material-ui/core/Icon'
 import IconButton from '@material-ui/core/IconButton'
-
+import Tooltip from '@material-ui/core/Tooltip'
 
 export class ProfileZone extends Component {
 
@@ -25,7 +25,9 @@ export class ProfileZone extends Component {
 			else { // desktop: login box
 				return (
 					<Link to={`/login?url=${encodeURIComponent(window.location.pathname)}`}>
-						<p style={{ padding: '4px 16px', fontSize: 15 }}>LOGIN</p>
+						<Tooltip disableFocusListener disableTouchListener title="회원가입이 필요 없어요!">
+							<p style={{ padding: '4px 16px' }}>LOGIN</p>
+						</Tooltip>
 					</Link>
 				)
 			}

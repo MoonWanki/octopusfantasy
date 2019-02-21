@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Header, Carousel } from 'Components'
+import { Header, Carousel, Footer } from 'Components'
 
 class Home extends Component {
 
@@ -11,7 +11,7 @@ class Home extends Component {
             <div>
                 <Header />
                 <Carousel />
-                {[1,2,3,4,5,6,7,8,9].map(n =>
+                {[1,2,3].map(n =>
                     <p key={n}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id auctor velit. Maecenas sagittis mi leo, quis vehicula nisi scelerisque a. Aenean semper metus ut enim aliquam volutpat. Vivamus id mi sagittis, fermentum metus ut, tincidunt massa. Aliquam ac nisl quam. Nullam rhoncus ultrices nulla, id interdum magna sagittis ut. Morbi ligula sapien, venenatis at pellentesque eget, tempus nec nisi. Fusce sed odio vitae mi egestas bibendum. Nam venenatis accumsan arcu, vel gravida quam malesuada in. Sed lorem magna, porttitor a ante eget, hendrerit egestas enim. In et rhoncus diam. Etiam egestas erat ut nunc condimentum, id feugiat erat suscipit.
                         Integer suscipit tellus id justo dapibus ornare. Mauris cursus tristique lorem eu scelerisque. Ut egestas semper porta. Mauris ac viverra enim, vitae mollis quam. Donec lacus arcu, blandit sed ultrices ut, ullamcorper eu risus. Donec condimentum non est sit amet lobortis. Vestibulum rhoncus ante nec nunc mattis efficitur. Duis nec accumsan lorem. Aenean id diam convallis, volutpat enim ut, dignissim urna. Donec tristique tortor ut leo laoreet, nec tristique massa porta. Maecenas placerat erat rutrum ipsum eleifend, et venenatis sem facilisis.
@@ -20,6 +20,7 @@ class Home extends Component {
                         Fusce feugiat orci id est dignissim dapibus. Duis eu egestas leo. Ut nunc lectus, ultricies nec velit sit amet, tempor cursus dolor. Pellentesque velit metus, vulputate eget elit eget, luctus gravida felis. Pellentesque sagittis nisi id turpis rhoncus semper. Sed nisi eros, dapibus in tellus facilisis, venenatis iaculis velit. Ut interdum convallis ex at venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus mauris turpis, venenatis sed aliquam at, rhoncus id purus. Vivamus posuere mi vel hendrerit tempor. Aliquam vestibulum ex sit amet lacus eleifend, finibus eleifend augue vulputate. Fusce iaculis fermentum dui, eu iaculis elit dignissim a. Praesent dictum sapien a dignissim porta. Etiam a augue semper, vehicula libero nec, malesuada ipsum. Suspendisse at ligula enim.
                     </p>
                 )}
+                <Footer />
             </div>
         );
     }

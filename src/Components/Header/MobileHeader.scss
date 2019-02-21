@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     background: white;
+    z-index: 2;
 
     .mobile-header-logo {
         background-image: url("../../images/logo_black.png");
@@ -18,11 +19,10 @@
     }
 }
 
-.sidebar {
+.mobile-header-drawer {
     position: fixed;
     width: 100%;
-    height: 100%;
-    top: 44px;
-    transition: left 0.3s;
-    background: lightgray;
+    transition: top 0.5s;
+    background: white;
+    z-index: 1;
 }
