@@ -1,45 +1,25 @@
-import React from 'react';
-import './index.scss';
+import React from 'react'
+import './index.scss'
 
 export default () => {
     return (
-        <div className="footer-container">
+        <div className="footer">
             <div className="footer-inner">
-                <div className="footer-menu powered-by-react">
-                    <p className="footer-title">Powered by</p>
-                    <a href="https://reactjs.org" target='_blank' rel='noopener noreferrer'>
-                        <div className="react-box">
-                            <p className='react'>React</p>
-                        </div>
-                    </a>
-                    <p style={{
-                        clear: 'both',
-                        fontFamily: 'NanumGothic',
-                        fontSize: '0.8rem',
-                        color: '#9e9e9e'
-                    }}>React v16.4.0 <span style={{color: '#eaeaea'}}>|</span> Redux v4.0.0</p>
+                <div className='footer-section'>
+                    <p className='footer-section-title'>Octopus Fantasy</p>
+                    <div className='footer-section-text' style={{ fontSize: '0.8em' }}>ⓒ 2009-2018 Octopus Fantasy. All rights reserved.</div>
                 </div>
-                <div className="footer-menu">
-                    <p className="footer-title">Visit</p>
-                    <div className="footer-title-hr" />
-                    <a target="_blank" rel='noopener noreferrer' href="https://blog.naver.com/dhksrl2589">
-                        <p className='footer-content'>Naver Blog</p>
-                    </a>
-                    <a target="_blank" rel='noopener noreferrer' href="https://soundcloud.com/moonwanki">
-                        <p className='footer-content'>Soundcloud</p>
-                    </a>
-                    <a target="_blank" rel='noopener noreferrer' href="https://www.youtube.com/channel/UCvVDyOH03o1PRJ1fOLeu6Uw/featured?view_as=subscriber">
-                        <p className='footer-content'>YouTube</p>
-                    </a>
+                <div className='footer-section'>
+                    <p className='footer-section-title'>Visit</p>
+                    <div className='footer-section-divider' />
+                    <a target='_blank' rel='noopener noreferrer' href="https://blog.naver.com/dhksrl2589"><p className='footer-section-text footer-section-link'>Naver Blog</p></a>
+                    <a target='_blank' rel='noopener noreferrer' href="https://soundcloud.com/moonwanki"><p className='footer-section-text footer-section-link'>Soundcloud</p></a>
+                    <a target='_blank' rel='noopener noreferrer' href="https://www.youtube.com/channel/UCvVDyOH03o1PRJ1fOLeu6Uw?view_as=subscriber"><p className='footer-section-text footer-section-link'>YouTube</p></a>
                 </div>
-                <div className="footer-menu">
-                    <p className="footer-title">Contact</p>
-                    <div className="footer-title-hr" />
-                    <p className='footer-content'>+82 10-4103-4075</p>
-                    <p className='footer-content'>dhksrl2589@gmail.com</p>
-                </div>
-                <div className="copyright">
-                    <p className='copyright-text'>ⓒ 2009-2018 Octopus Fantasy. All rights reserved.</p>
+                <div className='footer-section'>
+                    <p className='footer-section-title'>Contact</p>
+                    <div className='footer-section-divider' />
+                    <p className='footer-section-text'>dhksrl2589@gmail.com</p>
                 </div>
             </div>
         </div>
