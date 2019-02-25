@@ -26,7 +26,6 @@ class PostScroller extends Component {
     }
 
     componentDidMount() {
-        console.log('PostScroller did mount')
         this.scrollToTop()
         window.addEventListener('scroll', this.onScroll)
         if(this.state.isMultiple) this.fetchPostsByType(this.props.type)

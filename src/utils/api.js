@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+/* ---------- User Authentication ---------- */
+
 export const signIn = (provider, code, state) => axios({
     method: 'GET',
     baseURL: process.env.REACT_APP_SERVER_URL,
@@ -26,6 +28,8 @@ export const signOut = () => axios({
     withCredentials: true,
 })
 
+/* ---------- POST ---------- */
+
 export const loadAllPosts = () => axios({
     method: 'GET',
     baseURL: process.env.REACT_APP_SERVER_URL,
@@ -42,4 +46,46 @@ export const loadPostById = pid => axios({
     method: 'GET',
     baseURL: process.env.REACT_APP_SERVER_URL,
     url: `/post/${pid}`,
+})
+
+/* ---------- LIKE ---------- */
+
+export const addLike = pid => axios({
+    method: 'POST',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/like`,
+    withCredentials: true,
+})
+
+export const deleteLike = pid => axios({
+    method: 'DELETE',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/like`,
+    withCredentials: true,
+})
+
+/* ---------- COMMENT ---------- */
+
+export const addComment = (pid, text) => axios({
+    method: 'POST',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/comment`,
+    data: { text },
+    withCredentials: true,
+})
+
+export const editComment = (pid, cid, text) => axios({
+    method: 'PUT',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/comment`,
+    data: { cid, text },
+    withCredentials: true,
+})
+
+export const deleteComment = (pid, cid) => axios({
+    method: 'DELETE',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/comment`,
+    data: { cid },
+    withCredentials: true,
 })

@@ -1,30 +1,44 @@
 .post {
-
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 5em auto;
+    padding: 0 30px;
+
+    @media screen and (max-width: 768px) {
+        padding: 0 10px;
+        font-size: 0.8em;
+    }
 
     .post-colorbox {
         width: 60px;
         height: 8px;
-        margin: 10px 0;
+        margin: 0.6em 0;
+        background: black;
 
         @media screen and (max-width: 768px) {
-            width: 45px;
+            width: 40px;
             height: 6px;
             margin: 8px 0;
         }
     }
 
+    .post-colorbox-music { background: #473d80 }
+    .post-colorbox-entertainment { background: #c16a70 }
+    .post-colorbox-daigasso { background: #d69739 }
+    .post-colorbox-gamevideo { background: #8f3f39 }
+
     .post-title {
         width: 100%;
-        padding: 10px 0;
         font-weight: 500;
-        font-size: 2.5rem;
+        font-size: 2.5em;
+
+        @media screen and (max-width: 768px) {
+            font-size: 1.8em;
+        }
     }
 
     .post-postedon {
         width: 100%;        
-        padding: 4px 0;
+        margin: 1em 0 2em;
         color: gray;
     }
 
@@ -45,7 +59,18 @@
             display: block;
             padding-top: 56.25%;
         }
+    }
 
+    .post-menu {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        .post-menu-cc {
+            width: 100px;
+            background: url('../../images/cc.png') center no-repeat;
+            background-size: contain;
+        }
     }
 
 }

@@ -1,43 +1,51 @@
 import React, { Component } from 'react'
+import { IconButton, Icon, Button } from '@material-ui/core'
 import './index.scss'
 
-const getStringDate = rawDate => {
-    const date = new Date(rawDate)
-    const options = {
-        hour12: false,
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
-    }
-    return date.toLocaleTimeString("ko-KR", options)
-}
-
 export default class Post extends Component {
+
+    onLike = () => {
+
+    }
+
+    onCancelLike = () => {
+
+    }
+
+    onSaveComment = () => {
+
+    }
+
+    onEditComment = () => {
+
+    }
+
+    onDeleteComment = () => {
+
+    }
+
+    renderComments = () => {
+        return this.props.comments.map(comment =>
+            <div>
+                {comment.text}
+            </div>
+        )
+    }
     
     render() {
 
-        let typeColor
-        switch(this.props.type) {
-            case 'music': typeColor = '#473d80'; break
-            case 'entertainment': typeColor = '#c16a70'; break
-            case 'daigasso': typeColor = '#d69739'; break
-            case 'gamevideo': typeColor = '#8f3f39'; break
-            default: typeColor = 'black'; break
-        }
-
         return (
             <div className='post'>
-                <div className='post-colorbox' style={{ background: typeColor }} />
+                <div className={`post-colorbox${this.props.type && ` post-colorbox-${this.props.type}`}`} />
                 <div className='post-title'>{this.props.title}</div>
-                <div className='post-postedon'>{getStringDate(this.props.postedOn)}</div>
+                <div className='post-postedon'>{new Date(this.props.postedOn).toLocaleTimeString("ko-KR", { hour12: false, year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}</div>
 
                 {this.props.image &&
                     <div>
-                        <img src={this.props.image} width="100%" height="auto" alt=""/>
+                        <img src={this.props.image} width="100%" height="auto" alt="" />
                     </div>
                 }
+
                 {this.props.video &&
                     <div className='post-video-wrapper'>
                         <div className='post-video'>
@@ -53,6 +61,24 @@ export default class Post extends Component {
                         </div>
                     </div>
                 }
+
+                <div className='post-menu'>
+                    <div>
+                        <Button variant="outlined">
+                            <Icon style={{ fontSize: 16 }}>favorite</Icon>
+                            &nbsp;&nbsp;{this.props.likes.length}
+                        </Button>
+                        &nbsp;&nbsp;
+                        <IconButton onClick={null}>
+                            <Icon>link</Icon>
+                        </IconButton>
+                    </div>
+                    <div className='post-menu-cc' />
+                </div>
+
+                <p style={{ fontWeight: 500, fontSize: '1.2em' }}>댓글 {this.props.comments.length}개</p>
+                {this.renderComments()}
+
             </div>
         )
     }
