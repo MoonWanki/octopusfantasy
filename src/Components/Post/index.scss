@@ -1,9 +1,10 @@
 .post {
     max-width: 1200px;
-    margin: 5em auto;
+    margin: 6em auto 8em;
     padding: 0 30px;
 
     @media screen and (max-width: 768px) {
+        margin: 4em auto 6em;
         padding: 0 10px;
         font-size: 0.8em;
     }

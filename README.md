@@ -21,11 +21,11 @@ GitHub | https://github.com/MoonWanki/octopusfantasy-mahjong
   
 ### UCC works
 
-- **Music Works**  
+- **Music Works**   
 Self-made musics and MVs.  
 
 - **Entertainments**  
-Various video works produced since 2009.  
+Various funny video works.  
 
 - **Daigasso! DX**  
 Music copies with Nintendo DS software 「Daigasso! Band Brothers DX」.  

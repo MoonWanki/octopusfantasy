@@ -26,7 +26,7 @@ export default class MobileHeader extends Component {
                     <Link to='/'><div className='mobile-header-logo' /></Link>
                     <ProfileZone mobile />
                 </div>
-                <div className='mobile-header-drawer' style={{ top: sidebarOn ? 44 : '-100%' }}>
+                <div className='mobile-header-drawer' style={{ top: sidebarOn ? 44 : '-140%' }}>
                     <Divider />
                     <ListItem button component="a" href="https://tgv.octopusfantasy.com">
                         <ListItemIcon>

@@ -11,6 +11,7 @@ const bannerImages = {
     'daigasso': require('images/banner_daigasso.jpg'),
     'gamevideo': require('images/banner_gamevideo.jpg'),
     'mrblog': require('images/banner_mrblog.jpg'),
+    'default': require('images/banner_default.jpg'),
 }
 
 class PostScroller extends Component {
@@ -93,7 +94,7 @@ class PostScroller extends Component {
         return (
             <div>
                 <Header />
-                <div className='post-scroller-banner' style={{ backgroundImage: `url(${bannerImages[this.props.type]})` }} />
+                <div className='post-scroller-banner' style={{ backgroundImage: `url(${this.props.type ? bannerImages[this.props.type] : bannerImages.default})` }} />
 
                 {this.state.isFetchPending ?
                     <div style={{ height: '100vh' }}>

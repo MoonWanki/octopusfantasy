@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-import { IconButton, Icon, Button } from '@material-ui/core'
+import { connect } from 'react-redux'
+import { IconButton, Icon, Button, TextField, Snackbar } from '@material-ui/core'
 import './index.scss'
 
-export default class Post extends Component {
+class Post extends Component {
+
+    state = {
+        newCommentText: '',
+        editingCommentText: '',
+    }
 
     onLike = () => {
 
@@ -22,6 +28,24 @@ export default class Post extends Component {
 
     onDeleteComment = () => {
 
+    }
+
+    onNewCommentTextChange = e => {
+        this.setState({ newCommentText: e.target.value })
+    }
+
+    onEditingCommentTextChange = e => {
+        this.setState({ editingCommentText: e.target.value })
+    }
+
+    onLinkCopyButtonClick = () => {
+        let temp = document.createElement("textarea")
+        document.body.appendChild(temp)
+        temp.value = `https://www.octopusfantasy.com/post/${this.props.id}`
+        temp.select()
+        document.execCommand('copy')
+        document.body.removeChild(temp)
+        this.setState({ linkCopiedSnackbarOpen: true })
     }
 
     renderComments = () => {
@@ -64,12 +88,12 @@ export default class Post extends Component {
 
                 <div className='post-menu'>
                     <div>
-                        <Button variant="outlined">
+                        <Button variant="outlined" disabled={!this.props.profile}>
                             <Icon style={{ fontSize: 16 }}>favorite</Icon>
                             &nbsp;&nbsp;{this.props.likes.length}
                         </Button>
                         &nbsp;&nbsp;
-                        <IconButton onClick={null}>
+                        <IconButton onClick={this.onLinkCopyButtonClick}>
                             <Icon>link</Icon>
                         </IconButton>
                     </div>
@@ -79,7 +103,36 @@ export default class Post extends Component {
                 <p style={{ fontWeight: 500, fontSize: '1.2em' }}>댓글 {this.props.comments.length}개</p>
                 {this.renderComments()}
 
+                <TextField
+                    id="standard-multiline-flexible"
+                    label={this.props.profile ? '댓글을 입력하세요.' : '로그인 후 이용 가능합니다.'}
+                    multiline
+                    value={this.state.newCommentText}
+                    onChange={this.onNewCommentTextChange}
+                    margin="normal"
+                    fullWidth
+                    disabled={!this.props.profile}
+                />
+                <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+                    <Button variant='outlined' disabled={!this.props.profile}>등록</Button>
+                </div>
+
+                <Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    open={this.state.linkCopiedSnackbarOpen}
+                    onClose={() => this.setState({ linkCopiedSnackbarOpen: false })}
+                    ContentProps={{
+                        'aria-describedby': 'message-id',
+                    }}
+                    autoHideDuration={2000}
+                    message={<span id="message-id">링크가 복사되었습니다!</span>}
+                />
             </div>
         )
     }
 }
+
+export default connect(
+    state => ({
+        profile: state.user.profile,
+}))(Post)
