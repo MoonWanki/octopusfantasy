@@ -1,0 +1,51 @@
+.post {
+
+    max-width: 1200px;
+    margin: 100px auto;
+
+    .post-colorbox {
+        width: 60px;
+        height: 8px;
+        margin: 10px 0;
+
+        @media screen and (max-width: 768px) {
+            width: 45px;
+            height: 6px;
+            margin: 8px 0;
+        }
+    }
+
+    .post-title {
+        width: 100%;
+        padding: 10px 0;
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+
+    .post-postedon {
+        width: 100%;        
+        padding: 4px 0;
+        color: gray;
+    }
+
+    .post-video-wrapper {
+        
+        position: relative;
+        
+        .post-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 56.25%;
+        }
+
+    }
+
+}

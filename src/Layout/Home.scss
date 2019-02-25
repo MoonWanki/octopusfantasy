@@ -1,0 +1,27 @@
+.home-quick-link {
+    max-width: 1200px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+
+    .home-quick-link-item {
+        width: 280px;
+        height: 280px;
+        color: white;
+        display: table;
+
+        @media screen and (max-width: 768px) {
+            width: 120px;
+            height: 120px;
+            font-size: 0.5em;
+        }
+
+        .home-quick-link-item-text {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: 500;
+        }
+    }
+}

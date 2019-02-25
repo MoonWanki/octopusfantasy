@@ -25,3 +25,21 @@ export const signOut = () => axios({
     url: '/oauth/signout',
     withCredentials: true,
 })
+
+export const loadAllPosts = () => axios({
+    method: 'GET',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: '/post',
+})
+
+export const loadPostsByType = type => axios({
+    method: 'GET',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post?type=${type}`,
+})
+
+export const loadPostById = pid => axios({
+    method: 'GET',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}`,
+})

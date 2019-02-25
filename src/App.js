@@ -7,8 +7,9 @@ import * as userActions from 'store/modules/user'
 import Home from 'Layout/Home'
 import Login from 'Layout/Login'
 import About from 'Layout/About'
-import PostContainer from 'Layout/PostContainer'
+import PostScroller from 'Layout/PostScroller'
 import LoginCallback from 'Layout/LoginCallback'
+import NotFound from 'Layout/NotFound'
 
 class App extends Component {
 
@@ -20,11 +21,18 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route path="/login" component={Login} />
-					<Route path="/about" component={About} />
-					<Route path="/post" component={PostContainer} />
-					<Route path="/callback" component={LoginCallback} />
+					<Route exact path="/" 			component={Home} />
+					<Route path="/login" 			component={Login} />
+					<Route path="/about" 			component={About} />
+					<Route path="/callback" 		component={LoginCallback} />
+
+					<Route path="/music" 			render={() => <PostScroller type='music'/>} />
+					<Route path="/entertainment" 	render={() => <PostScroller type='entertainment'/>} />
+					<Route path="/daigasso" 		render={() => <PostScroller type='daigasso'/>} />
+					<Route path="/gamevideo" 		render={() => <PostScroller type='gamevideo'/>} />
+					<Route path="/post/:pid" 		component={PostScroller} />
+
+					<Route component={NotFound} />
 				</Switch>
 			</BrowserRouter>
 		);

@@ -10,13 +10,13 @@ export default class WideHeader extends Component {
     }
 
     componentDidMount() {
-        window.onscroll = this.onScroll
+        window.addEventListener('scroll', this.onScroll)
     }
 
     onScroll = () => this.setState({ opaque: window.scrollY > 0 })
 
     componentWillUnmount() {
-        window.onscroll = null
+        window.removeEventListener('scroll', this.onScroll)
     }
 
     render() {
@@ -27,7 +27,32 @@ export default class WideHeader extends Component {
                         <Link to='/'><div className='wide-header-logo' /></Link>
                         <div className='wide-header-nav-item wide-header-nav-item-products'>
                             <p className='nav-item-text'>PRODUCTS</p>
-                            <div className='wide-header-products-menu' />
+                            <div className='wide-header-products-menu'>
+                                <div className='wide-header-products-menu-inner'>
+                                    <div className='wide-header-products-menu-row'>
+                                        <a href='https://tgv.octopusfantasy.com' className='wide-header-products-menu-row-item'>
+                                            The Great Venus
+                                        </a>
+                                        <a href='https://mahjong.octopusfantasy.com' className='wide-header-products-menu-row-item'>
+                                            Octo Mahjong Online
+                                        </a>
+                                    </div>
+                                    <div className='wide-header-products-menu-row'>
+                                        <Link to='/music' className='wide-header-products-menu-row-item'>
+                                            Music Works
+                                        </Link>
+                                        <Link to='/entertainment' className='wide-header-products-menu-row-item'>
+                                            Entertainments
+                                        </Link>
+                                        <Link to='/daigasso' className='wide-header-products-menu-row-item'>
+                                            Daigasso! DX
+                                        </Link>
+                                        <Link to='/gamevideo' className='wide-header-products-menu-row-item'>
+                                            Game Videos
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <Link to='/about'><div className='wide-header-nav-item'><p className='nav-item-text'>ABOUT</p></div></Link>
                     </div>

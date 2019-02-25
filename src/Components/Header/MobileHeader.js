@@ -42,7 +42,7 @@ export default class MobileHeader extends Component {
                     </ListItem>
                     <Divider />
                     <Link to='/music'>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.setState({ sidebarOn: false })}>
                             <ListItemIcon>
                                 <Icon>music_note</Icon>
                             </ListItemIcon>
@@ -50,7 +50,7 @@ export default class MobileHeader extends Component {
                         </ListItem>
                     </Link>
                     <Link to='/entertainment'>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.setState({ sidebarOn: false })}>
                             <ListItemIcon>
                                 <Icon>video_library</Icon>
                             </ListItemIcon>
@@ -58,7 +58,7 @@ export default class MobileHeader extends Component {
                         </ListItem>
                     </Link>
                     <Link to='/daigasso'>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.setState({ sidebarOn: false })}>
                             <ListItemIcon>
                                 <Icon>music_video</Icon>
                             </ListItemIcon>
@@ -66,7 +66,7 @@ export default class MobileHeader extends Component {
                         </ListItem>
                     </Link>
                     <Link to='/gamevideo'>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.setState({ sidebarOn: false })}>
                             <ListItemIcon>
                                 <Icon>videogame_asset</Icon>
                             </ListItemIcon>
@@ -75,7 +75,7 @@ export default class MobileHeader extends Component {
                     </Link>
                     <Divider />
                     <Link to='/about'>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.setState({ sidebarOn: false })}>
                             <ListItemIcon>
                                 <Icon>info</Icon>
                             </ListItemIcon>

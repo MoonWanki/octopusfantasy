@@ -11,11 +11,11 @@ const duration = 15
 
 const carouselItems = [
     <div className='carousel-item' style={{ backgroundImage: `url(${carouselImage1})`}}>
-        <p className='carousel-item-text carousel-item-text-title'>새로운 PC. 새로운 시작.</p>
+        <p className='carousel-item-text carousel-item-text-title'>새로운 PC. <span style={{ fontWeight: 500 }}>새로운 시작.</span></p>
         <p className='carousel-item-text'>유로트럭 풀옵을 돌리기 위한 그의 부단한 노력.</p>
     </div>,
     <div className='carousel-item' style={{ backgroundImage: `url(${carouselImage2})`}}>
-        <p className='carousel-item-text carousel-item-text-title'>文, "경영대학원 사퇴 결정"</p>
+        <p className='carousel-item-text carousel-item-text-title'>文, "경영대학원 <span style={{ fontWeight: 500 }}>사퇴</span> 결정"</p>
         <p className='carousel-item-text'>4개월 간의 숨가쁜 大장정···끝내 막을 내리다</p>
     </div>,
     <div className='carousel-item' style={{ backgroundImage: `url(${carouselImage3})`}}></div>,
@@ -54,6 +54,7 @@ export default class Carousel extends Component {
     toNth = n => {
         clearTimeout(slidingTimer)
         this.setState({ current: n, progress: 0 })
+        
         slidingTimer = setTimeout(this.runProgress, duration)
     }
 
@@ -76,7 +77,7 @@ export default class Carousel extends Component {
                     {carouselItems.map((_, i) =>
                         <div
                             key={i}
-                            onClick={() => { if(this.state.current!==i) this.toNth(i) }}
+                            onClick={this.state.current===i ? null : () => this.toNth(i)}
                             className='carousel-navigator-button'
                             style={this.state.current===i ? { opacity: 0.8 } : { cursor: 'pointer' }} />
                     )}

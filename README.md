@@ -4,7 +4,7 @@
 [![Redux](https://img.shields.io/badge/Redux-v4.0.1-darkviolet.svg)](https://redux.js.org/)
 [![MaterialUI](https://img.shields.io/badge/Material--UI-v3.9.2-ee59a4.svg)](https://material-ui.com/)
 
-Official website | https://www.octopusfantasy.com  
+**https://www.octopusfantasy.com**  
 Personal platform with UCC works and online game services by Moon Wanki.  
   
 ## Products
