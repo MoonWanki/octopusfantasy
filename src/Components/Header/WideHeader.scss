@@ -3,16 +3,16 @@
     .nav-item-text {
         color: #757575;
     }
-    .wide-header-inner {
-        .wide-header-nav {
-            .wide-header-logo {
+    .header-inner {
+        .header-nav {
+            .header-logo {
                 background-image: url("../../images/logo_black.png")
             }
         }
     }
 }
 
-.wide-header {
+.header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -29,7 +29,7 @@
         @include opaque();
     }
 
-    .wide-header-inner {
+    .header-inner {
         margin: auto;
         padding: 0 30px;
         max-width: 1200px;
@@ -37,12 +37,12 @@
         justify-content: space-between;
         align-items: center;
 
-        .wide-header-nav {
+        .header-nav {
             display: flex;
             align-items: center;
             height: 80px;
 
-            .wide-header-logo {
+            .header-logo {
                 width: 200px;
                 height: 60px;
                 margin-right: 40px;
@@ -52,7 +52,7 @@
                 background-position: center;
             }
     
-            .wide-header-nav-item {
+            .header-nav-item {
                 height: 80px;
                 padding: 0 30px;
                 display: flex;
@@ -63,20 +63,20 @@
                 }
             }
     
-            .wide-header-nav-item-products {
+            .header-nav-item-products {
     
                 cursor: default;
     
-                .wide-header-products-menu {
+                .header-menu {
                     position: absolute;
                     top: 80px;
                     left: 0;
                     width: 100%;
-                    height: 240px;
+                    height: 210px;
                     background: white;
                     display: none;
 
-                    .wide-header-products-menu-inner {
+                    .header-menu-inner {
 
                         max-width: 1200px;
                         height: 100%;
@@ -84,26 +84,47 @@
                         display: flex;
                         flex-direction: column;
 
-                        .wide-header-products-menu-row {
+                        .header-menu-row {
                             display: flex;
                             flex: 1;
     
-                            .wide-header-products-menu-row-item {
+                            .header-menu-item {
                                 flex: 1;
-                                color: #757575;
-                                padding: 12px;
-                                font-size: 1.4em;
+                                padding: 12px 22px;
+
+                                .header-menu-item-colorbox {
+                                    width: 0;
+                                    height: 4px;
+                                    margin-bottom: 5px;
+                                    transition: width 0.2s;
+                                }
+
+                                .header-menu-item-title {
+                                    color: #757575;
+                                    font-size: 20px;
+                                    font-weight: 500;
+                                }
+
+                                .header-menu-item-text {
+                                    color: #bcbcbc;
+                                    font-size: 14px;
+                                    margin-top: 6px;
+                                }
 
                                 &:hover {
                                     background: #f8f8f8;
+                                    .header-menu-item-colorbox { width: 24px; }
+                                    .header-menu-item-title { color: #373737; }
+                                    .header-menu-item-text { color: #8e8e8e; }
                                 }
+
                             }
                         }
                     }
                 }
     
                 &:hover {
-                    .wide-header-products-menu {
+                    .header-menu {
                         display: block;
                     }
                 }
@@ -112,6 +133,6 @@
     }
 }
 
-.wide-header-opaque {
+.header-opaque {
     @include opaque();
 }

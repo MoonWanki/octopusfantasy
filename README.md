@@ -1,8 +1,8 @@
 # Octopus Fantasy
 
-[![ReactJS](https://img.shields.io/badge/ReactJS-v16.7.0-blue.svg)](https://reactjs.org/)
-[![Redux](https://img.shields.io/badge/Redux-v4.0.1-darkviolet.svg)](https://redux.js.org/)
-[![MaterialUI](https://img.shields.io/badge/Material--UI-v3.9.2-ee59a4.svg)](https://material-ui.com/)
+[![React](https://img.shields.io/badge/React-v16.7.0-00A8E0.svg?style=flat-square&logo=React)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/Redux-v4.0.1-764ABC.svg?style=flat-square&logo=Redux)](https://redux.js.org/)
+[![MaterialUI](https://img.shields.io/badge/Material--UI-v3.9.2-ee59a4.svg?style=flat-square)](https://material-ui.com/)
 
 **https://www.octopusfantasy.com**  
 Personal platform with UCC works and online game services by Moon Wanki.  
@@ -48,3 +48,8 @@ Simple and robust async action creators in Redux.
 
 - **Axios** | https://github.com/axios/axios  
 Promise based HTTP client.  
+
+## API Server  
+
+Octopus Fantasy has its own REST API server.  
+GitHub | https://github.com/MoonWanki/octopusfantasy-server

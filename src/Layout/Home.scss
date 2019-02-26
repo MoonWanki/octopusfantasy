@@ -9,11 +9,16 @@
         height: 280px;
         color: white;
         display: table;
+        box-sizing: border-box;
 
         @media screen and (max-width: 768px) {
             width: 120px;
             height: 120px;
             font-size: 0.5em;
+        }
+
+        &:hover {
+            border: 0.5em solid rgba($color: white, $alpha: 0.3);
         }
 
         .home-quick-link-item-text {
@@ -23,5 +28,6 @@
             font-size: 1.4em;
             font-weight: 500;
         }
+
     }
 }

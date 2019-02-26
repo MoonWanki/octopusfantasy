@@ -5,13 +5,42 @@ import { loadPostsByType, loadPostById } from 'utils/api'
 import { CircularProgress } from '@material-ui/core'
 import './PostScroller.scss'
 
-const bannerImages = {
-    'music': require('images/banner_music.jpg'),
-    'entertainment': require('images/banner_entertainment.jpg'),
-    'daigasso': require('images/banner_daigasso.jpg'),
-    'gamevideo': require('images/banner_gamevideo.jpg'),
-    'mrblog': require('images/banner_mrblog.jpg'),
-    'default': require('images/banner_default.jpg'),
+const banners = {
+
+    music:
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_music.jpg')})` }}>
+            <div className='post-scroller-banner-inner'>
+                <div className='post-scroller-banner-title'>Music Works</div>
+                <div className='post-scroller-banner-text'>자작곡 및 뮤직비디오</div>
+            </div>
+        </div>,
+
+    entertainment:
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_entertainment.jpg')})` }}>
+            <div className='post-scroller-banner-inner'>
+                <div className='post-scroller-banner-title'>Entertainments</div>
+                <div className='post-scroller-banner-text'>흑역사가 넘쳐나는 UCC 영상들</div>
+            </div>
+        </div>,
+
+    daigasso:
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_daigasso.jpg')})` }}>
+            <div className='post-scroller-banner-inner'>
+                <div className='post-scroller-banner-title'>Daigasso! DX</div>
+                <div className='post-scroller-banner-text'>대합주! 밴드 브라더스 DX 작품 모음</div>
+            </div>
+        </div>,
+
+    gamevideo:
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_gamevideo.jpg')})` }}>
+            <div className='post-scroller-banner-inner'>
+                <div className='post-scroller-banner-title'>Game Videos</div>
+                <div className='post-scroller-banner-text'>각종 게임 플레이 영상 모음</div>
+            </div>
+        </div>,
+
+    default:
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_default.jpg')})` }} />,
 }
 
 class PostScroller extends Component {
@@ -94,7 +123,7 @@ class PostScroller extends Component {
         return (
             <div>
                 <Header />
-                <div className='post-scroller-banner' style={{ backgroundImage: `url(${this.props.type ? bannerImages[this.props.type] : bannerImages.default})` }} />
+                {banners[this.props.type ? this.props.type : 'default']}
 
                 {this.state.isFetchPending ?
                     <div style={{ height: '100vh' }}>

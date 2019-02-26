@@ -46,7 +46,7 @@ export default class MobileHeader extends Component {
                             <ListItemIcon>
                                 <Icon>music_note</Icon>
                             </ListItemIcon>
-                            <ListItemText primary="MUSIC WORKS" secondary="자작곡, 뮤직비디오" />
+                            <ListItemText primary="MUSIC WORKS" secondary="자작곡 및 뮤직비디오" />
                         </ListItem>
                     </Link>
                     <Link to='/entertainment'>
@@ -54,7 +54,7 @@ export default class MobileHeader extends Component {
                             <ListItemIcon>
                                 <Icon>video_library</Icon>
                             </ListItemIcon>
-                            <ListItemText primary="ENTERTAINMENTS" secondary="각종 UCC 영상 모음" />
+                            <ListItemText primary="ENTERTAINMENTS" secondary="흑역사가 넘쳐나는 UCC 영상들" />
                         </ListItem>
                     </Link>
                     <Link to='/daigasso'>
@@ -70,7 +70,7 @@ export default class MobileHeader extends Component {
                             <ListItemIcon>
                                 <Icon>videogame_asset</Icon>
                             </ListItemIcon>
-                            <ListItemText primary="GAME VIDEOS" secondary="각종 게임 플레이 영상" />
+                            <ListItemText primary="GAME VIDEOS" secondary="각종 게임 플레이 영상 모음" />
                         </ListItem>
                     </Link>
                     <Divider />

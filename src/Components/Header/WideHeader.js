@@ -21,40 +21,52 @@ export default class WideHeader extends Component {
 
     render() {
         return (
-            <div className={this.state.opaque ? 'wide-header wide-header-opaque' : 'wide-header'}>
-                <div className='wide-header-inner'>
-                    <div className='wide-header-nav' style={{  }}>
-                        <Link to='/'><div className='wide-header-logo' /></Link>
-                        <div className='wide-header-nav-item wide-header-nav-item-products'>
+            <div className={this.state.opaque ? 'header header-opaque' : 'header'}>
+                <div className='header-inner'>
+                    <div className='header-nav'>
+                        <Link to='/'><div className='header-logo' /></Link>
+                        <div className='header-nav-item header-nav-item-products'>
                             <p className='nav-item-text'>PRODUCTS</p>
-                            <div className='wide-header-products-menu'>
-                                <div className='wide-header-products-menu-inner'>
-                                    <div className='wide-header-products-menu-row'>
-                                        <a href='https://tgv.octopusfantasy.com' className='wide-header-products-menu-row-item'>
-                                            The Great Venus
+                            <div className='header-menu'>
+                                <div className='header-menu-inner'>
+                                    <div className='header-menu-row'>
+                                        <a href='https://tgv.octopusfantasy.com' className='header-menu-item'>
+                                            <div className='header-menu-item-colorbox' style={{ background: '#62605d' }} />
+                                            <div className='header-menu-item-title'>The Great Venus</div>
+                                            <div className='header-menu-item-text'>이더리움 플랫폼 기반 턴제 웹 RPG</div>
                                         </a>
-                                        <a href='https://mahjong.octopusfantasy.com' className='wide-header-products-menu-row-item'>
-                                            Octo Mahjong Online
+                                        <a href='https://mahjong.octopusfantasy.com' className='header-menu-item'>
+                                            <div className='header-menu-item-colorbox' style={{ background: '#62605d' }} />
+                                            <div className='header-menu-item-title'>Octo Mahjong Online</div>
+                                            <div className='header-menu-item-text'>크로스 플랫폼 온라인 마작 (서비스 예정)</div>
                                         </a>
                                     </div>
-                                    <div className='wide-header-products-menu-row'>
-                                        <Link to='/music' className='wide-header-products-menu-row-item'>
-                                            Music Works
+                                    <div className='header-menu-row'>
+                                        <Link to='/music' className='header-menu-item'>
+                                            <div className='header-menu-item-colorbox' style={{ background: '#473d80' }} />
+                                            <div className='header-menu-item-title'>Music Works</div>
+                                            <div className='header-menu-item-text'>자작곡 및 뮤직비디오</div>
                                         </Link>
-                                        <Link to='/entertainment' className='wide-header-products-menu-row-item'>
-                                            Entertainments
+                                        <Link to='/entertainment' className='header-menu-item'>
+                                            <div className='header-menu-item-colorbox' style={{ background: '#c16a70' }} />
+                                            <div className='header-menu-item-title'>Entertainments</div>
+                                            <div className='header-menu-item-text'>흑역사가 넘쳐나는 UCC 영상들</div>
                                         </Link>
-                                        <Link to='/daigasso' className='wide-header-products-menu-row-item'>
-                                            Daigasso! DX
+                                        <Link to='/daigasso' className='header-menu-item'>
+                                            <div className='header-menu-item-colorbox' style={{ background: '#d69739' }} />
+                                            <div className='header-menu-item-title'>Daigasso! DX</div>
+                                            <div className='header-menu-item-text'>대합주! 밴드 브라더스 DX 작품 모음</div>
                                         </Link>
-                                        <Link to='/gamevideo' className='wide-header-products-menu-row-item'>
-                                            Game Videos
+                                        <Link to='/gamevideo' className='header-menu-item'>
+                                            <div className='header-menu-item-colorbox' style={{ background: '#8f3f39' }} />
+                                            <div className='header-menu-item-title'>Game Videos</div>
+                                            <div className='header-menu-item-text'>각종 게임 플레이 영상 모음</div>
                                         </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <Link to='/about'><div className='wide-header-nav-item'><p className='nav-item-text'>ABOUT</p></div></Link>
+                        <Link to='/about'><div className='header-nav-item'><p className='nav-item-text'>ABOUT</p></div></Link>
                     </div>
                     <ProfileZone />
                 </div>
