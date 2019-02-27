@@ -40,7 +40,9 @@ const banners = {
         </div>,
 
     default:
-        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_default.jpg')})` }} />,
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${require('images/banner_default.jpg')})` }}>
+            <div className='post-scroller-banner-inner' />
+        </div>,
 }
 
 class PostScroller extends Component {

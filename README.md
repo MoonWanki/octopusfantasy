@@ -1,6 +1,6 @@
 # Octopus Fantasy
 
-[![React](https://img.shields.io/badge/React-v16.7.0-00A8E0.svg?style=flat-square&logo=React)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-v16.8.3-00A8E0.svg?style=flat-square&logo=React)](https://reactjs.org/)
 [![Redux](https://img.shields.io/badge/Redux-v4.0.1-764ABC.svg?style=flat-square&logo=Redux)](https://redux.js.org/)
 [![MaterialUI](https://img.shields.io/badge/Material--UI-v3.9.2-ee59a4.svg?style=flat-square)](https://material-ui.com/)
 
