@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import * as userActions from 'store/modules/user'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -23,10 +23,7 @@ class ProfileMenu extends Component {
     }
     
     handleClose = event => {
-        if (this.anchorEl.contains(event.target)) {
-            return
-        }
-    
+        if (this.anchorEl.contains(event.target)) return
         this.setState({ profileMenuOpen: false })
     }
 
@@ -51,21 +48,23 @@ class ProfileMenu extends Component {
                         style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                     >
                         <Paper>
-                        <ClickAwayListener onClickAway={this.handleClose}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar alt="profile_image" src={this.props.profile.profileImage} />
-                                </ListItemAvatar>
-                                <ListItemText primary={this.props.profile.nickname} secondary={this.props.profile.email} style={{ color: 'gray', fontWeight: 500 }} />
-                            </ListItem>
-                            <Divider />
-                            <ListItem button onClick={this.handleSignOut}>
-                                <ListItemIcon>
-                                    <Icon>exit_to_app</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="LOGOUT" />
-                            </ListItem>
-                        </ClickAwayListener>
+                            <ClickAwayListener onClickAway={this.handleClose}>
+                                <Fragment>
+                                    <ListItem>
+                                        <ListItemAvatar>
+                                            <Avatar alt="profile_image" src={this.props.profile.profileImage} />
+                                        </ListItemAvatar>
+                                        <ListItemText primary={this.props.profile.nickname} secondary={this.props.profile.email} style={{ color: 'gray', fontWeight: 500 }} />
+                                    </ListItem>
+                                    <Divider />
+                                    <ListItem button onClick={this.handleSignOut}>
+                                        <ListItemIcon>
+                                            <Icon>exit_to_app</Icon>
+                                        </ListItemIcon>
+                                        <ListItemText primary="LOGOUT" />
+                                    </ListItem>
+                                </Fragment>
+                            </ClickAwayListener>
                         </Paper>
                     </Grow>
                     )}

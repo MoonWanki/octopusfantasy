@@ -50,18 +50,17 @@
 
     .carousel-navigator {
         position: absolute;
-        width: 110px;
         bottom: 30px;
         transform: translateX(-50%);
         left: 50%;
         display: flex;
-        justify-content: space-between;
 
         .carousel-navigator-button {
             width: 30px;
             height: 4px;
             background: white;
             opacity: 0.4;
+            margin: 0 2px;
 
             &:hover {
                 opacity: 0.8;

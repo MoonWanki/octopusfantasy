@@ -46,8 +46,14 @@ For state management in React app.
 - **Redux Promise Middleware** | https://github.com/pburtchaell/redux-promise-middleware  
 Simple and robust async action creators in Redux.  
 
+- **Immer** | https://github.com/mweststrate/immer  
+For create immutable object concisely.  
+
 - **Axios** | https://github.com/axios/axios  
 Promise based HTTP client.  
+
+- **Moment.js** | http://momentjs.com  
+Parse date object with readability.  
 
 ## API Server  
 

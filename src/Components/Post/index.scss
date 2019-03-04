@@ -74,4 +74,36 @@
         }
     }
 
+    .comment {
+        display: flex;
+        padding: 1em 0;
+        font-family: 'Noto Sans KR', sans-serif;
+
+        .comment-body {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            padding: 0 1em;
+
+            .comment-header {
+                display: flex;
+                color: gray;
+
+                .comment-header-button:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            .comment-text {
+                padding: 0.4em 0;
+            }
+
+            .comment-recomment-button:hover {
+                cursor: pointer;
+                color: gray;
+            }
+        }
+    }
+
 }

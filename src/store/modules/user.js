@@ -5,7 +5,7 @@ const initialState = {
     isSignedIn: false,
     isPending: true,
     profile: null,
-};
+}
 
 const FETCH_USER = 'user/FETCH_USER'
 const FETCH_USER_PENDING = 'user/FETCH_USER_PENDING'

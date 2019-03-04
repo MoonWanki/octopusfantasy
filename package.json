@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "axios": "^0.18.0",
+    "immer": "^2.1.0",
+    "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "qs": "^6.6.0",
     "react": "^16.8.3",

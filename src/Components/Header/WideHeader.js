@@ -38,7 +38,7 @@ export default class WideHeader extends Component {
                                         <a href='https://mahjong.octopusfantasy.com' className='header-menu-item'>
                                             <div className='header-menu-item-colorbox' style={{ background: '#62605d' }} />
                                             <div className='header-menu-item-title'>Octo Mahjong Online</div>
-                                            <div className='header-menu-item-text'>크로스 플랫폼 온라인 마작 (서비스 예정)</div>
+                                            <div className='header-menu-item-text'>문어마장 온라인</div>
                                         </a>
                                     </div>
                                     <div className='header-menu-row'>

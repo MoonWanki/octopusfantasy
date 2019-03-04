@@ -77,15 +77,37 @@ export const addComment = (pid, text) => axios({
 export const editComment = (pid, cid, text) => axios({
     method: 'PUT',
     baseURL: process.env.REACT_APP_SERVER_URL,
-    url: `/post/${pid}/comment`,
-    data: { cid, text },
+    url: `/post/${pid}/comment/${cid}`,
+    data: { text },
     withCredentials: true,
 })
 
 export const deleteComment = (pid, cid) => axios({
     method: 'DELETE',
     baseURL: process.env.REACT_APP_SERVER_URL,
-    url: `/post/${pid}/comment`,
-    data: { cid },
+    url: `/post/${pid}/comment/${cid}`,
+    withCredentials: true,
+})
+
+export const addRecomment = (pid, cid, text) => axios({
+    method: 'POST',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/comment/${cid}`,
+    data: { text },
+    withCredentials: true,
+})
+
+export const editRecomment = (pid, cid, rcid, text) => axios({
+    method: 'PUT',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/comment/${cid}/${rcid}`,
+    data: { text },
+    withCredentials: true,
+})
+
+export const deleteRecomment = (pid, cid, rcid) => axios({
+    method: 'DELETE',
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: `/post/${pid}/comment/${cid}/${rcid}`,
     withCredentials: true,
 })
