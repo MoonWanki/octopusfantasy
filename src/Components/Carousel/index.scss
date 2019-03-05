@@ -10,6 +10,9 @@
     }
 
     .carousel-item {
+        position: absolute;
+        top: 0;
+        width: 100%;
         height: 100%;
         background: gray center no-repeat;
         background-size: cover;
@@ -28,16 +31,7 @@
             font-size: 3.8em;
         }
     }
-
-    .carousel-active {
-        display: block;
-        height: 100%;
-    }
-
-    .carousel-inactive {
-        display: none;
-    }
-
+    
     .carousel-arrows {
         position: absolute;
         width: 98%;

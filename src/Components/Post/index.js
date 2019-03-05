@@ -208,7 +208,7 @@ class Post extends Component {
 
                 <div className='post-menu'>
                     <div>
-                        <Button variant="outlined" onClick={this.onLikeButtonClick} disabled={this.state.isLikePending} color={this.state.likes.includes(this.props.profile.id) ? 'primary' : null}>
+                        <Button variant="outlined" onClick={this.onLikeButtonClick} disabled={this.state.isLikePending} color={this.props.profile && this.state.likes.includes(this.props.profile.id) ? 'primary' : null}>
                             <Icon style={{ fontSize: 16 }}>favorite</Icon>
                             &nbsp;&nbsp;{this.state.likes.length}
                         </Button>
@@ -358,7 +358,9 @@ class Post extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         >
-        <DialogTitle id="alert-dialog-title"><span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>정말 댓글을 삭제하시겠습니까?</span></DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+            <span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>정말 댓글을 삭제하시겠습니까?</span>
+        </DialogTitle>
         <DialogContent>
             <DialogContentText>
                 <span style={{ fontFamily: 'Noto Sans KR' }}>삭제한 댓글은 복구할 수 없습니다.</span>
@@ -383,10 +385,10 @@ class Post extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         >
-        <DialogTitle id="alert-dialog-title">정말 답글을 삭제하시겠습니까?"</DialogTitle>
+        <DialogTitle id="alert-dialog-title"><span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>정말 답글을 삭제하시겠습니까?"</span></DialogTitle>
         <DialogContent>
             <DialogContentText>
-                삭제한 답글은 복구할 수 없습니다.
+                <span style={{ fontFamily: 'Noto Sans KR' }}>삭제한 답글은 복구할 수 없습니다.</span>
             </DialogContentText>
         </DialogContent>
         <DialogActions>
