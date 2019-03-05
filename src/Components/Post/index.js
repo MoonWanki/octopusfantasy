@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { IconButton, Icon, Button, TextField, Snackbar, Avatar, Dialog, DialogActions, DialogTitle } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import { IconButton, Icon, Button, TextField, Snackbar, Avatar, Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText, Tooltip } from '@material-ui/core'
 import { loadPostById, addComment,/* editComment,*/ deleteComment, addRecomment,/* editRecomment,*/ deleteRecomment, addLike, deleteLike } from 'utils/api'
 import moment from 'moment'
 import produce from 'immer'
@@ -8,6 +9,8 @@ import './index.scss'
 class Post extends Component {
 
     state = {
+        likes: this.props.likes,
+        isLikePending: false,
         comments: this.props.comments.map(comment => ({
             ...comment,
             isEditing: false,
@@ -30,18 +33,6 @@ class Post extends Component {
         })),
         commentText: '',
         isCommentPending: false,
-    }
-    
-    onLike = () => {
-        addLike(this.props.id)
-        .then(res => console.log(res))
-        .catch(err => console.error(err))
-    }
-
-    onCancelLike = () => {
-        deleteLike(this.props.id)
-        .then(res => console.log(res))
-        .catch(err => console.error(err))
     }
 
     onSaveComment = () => {
@@ -136,6 +127,32 @@ class Post extends Component {
 
     onEditingCommentTextChange = e => this.setState({ editingCommentText: e.target.value })
 
+    onLikeButtonClick = () => {
+        if(this.props.profile && !this.state.isLikePending) {
+            this.setState({ isLikePending: true })
+            const idx = this.state.likes.findIndex(id => id === this.props.profile.id)
+            if(idx === -1) {
+                addLike(this.props.profile.id)
+                .then(() => this.setState(state => produce(state, draft => {
+                    draft.likes.push(this.props.profile.id)
+                    draft.isLikePending = false
+                })))
+                .catch(err => this.setState({ isLikePending: false }))
+            }
+            else {
+                deleteLike(this.props.profile.id)
+                .then(() => this.setState(state => produce(state, draft => {
+                    draft.likes.splice(idx, 1)
+                    draft.isLikePending = false
+                })))
+                .catch(err => this.setState({ isLikePending: false }))
+            }
+        }
+        else {
+            this.setState({ plzLoginDialogOpen: true })
+        }
+    }
+
     onLinkButtonClick = () => {
         let temp = document.createElement("textarea")
         document.body.appendChild(temp)
@@ -191,24 +208,29 @@ class Post extends Component {
 
                 <div className='post-menu'>
                     <div>
-                        <Button variant="outlined" disabled={!this.props.profile}>
+                        <Button variant="outlined" onClick={this.onLikeButtonClick} disabled={this.state.isLikePending} color={this.state.likes.includes(this.props.profile.id) ? 'primary' : null}>
                             <Icon style={{ fontSize: 16 }}>favorite</Icon>
-                            &nbsp;&nbsp;{this.props.likes.length}
+                            &nbsp;&nbsp;{this.state.likes.length}
                         </Button>
                         &nbsp;&nbsp;
-                        <IconButton onClick={this.onLinkButtonClick}>
-                            <Icon>link</Icon>
-                        </IconButton>
+                        <Tooltip title="링크 복사">
+                            <IconButton onClick={this.onLinkButtonClick}>
+                                <Icon>link</Icon>
+                            </IconButton>
+                        </Tooltip>
                     </div>
-                    <div className='post-menu-cc' />
+                    <Tooltip title="저작자 명시 필수 · 영리적 사용 불가 · 내용 변경 불가">
+                        <div className='post-menu-cc' />
+                    </Tooltip>
                 </div>
 
-                <p style={{ fontWeight: 500, fontSize: '1.2em' }}>댓글 {this.state.comments.length}개</p>
+                <p style={{ fontWeight: 500, fontSize: '1.2em' }}>
+                    댓글 {this.state.comments.reduce((acc, cur) => acc + cur.valid + cur.recomments.filter(rc => rc.valid).length, 0)}개</p>
                 {this.renderComments()}
 
                 <TextField
                     id="standard-multiline-flexible"
-                    label={this.props.profile ? '댓글을 입력하세요.' : '로그인 후 이용 가능합니다.'}
+                    label={this.props.profile ? '댓글을 입력하세요.' : '로그인 후 댓글을 작성할 수 있습니다.'}
                     multiline
                     value={this.state.commentText}
                     onChange={e => this.setState({ commentText: e.target.value })}
@@ -230,6 +252,30 @@ class Post extends Component {
                     autoHideDuration={2000}
                     message={<span id="message-id">링크가 복사되었습니다!</span>}
                 />
+
+                <Dialog
+                    open={this.state.plzLoginDialogOpen || false}
+                    onClose={() => this.setState({ plzLoginDialogOpen: false })}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                    >
+                    <DialogTitle id="alert-dialog-title"><span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>아직 로그인을 안 하셨네요!</span></DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            <span style={{ fontFamily: 'Noto Sans KR' }}>로그인 후 Octopus Fantasy의 다양한 컨텐츠를 만나보세요.</span>
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Link to={`/login?url=${encodeURIComponent(window.location.pathname)}`}>
+                            <Button color="primary">
+                                로그인
+                            </Button>
+                        </Link>
+                        <Button color="primary" onClick={() => this.setState({ plzLoginDialogOpen: false })} autoFocus>
+                            나중에
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }
@@ -242,7 +288,7 @@ class Post extends Component {
                     <div style={{ fontWeight: 500, color: 'black', marginRight: '1em' }}>{comment.commentedBy.nickname}</div>
                     <div>{comment.valid && moment(comment.commentedOn).fromNow()}</div>
                     {comment.valid && comment.modified && ` · 수정됨`}
-                    {comment.valid && this.props.profile && comment.commentedBy.id === this.props.profile.id.toString() && <Fragment>
+                    {comment.valid && this.props.profile && comment.commentedBy.id === this.props.profile.id && <Fragment>
                         &nbsp;·&nbsp;<div className='comment-header-button' onClick={this.onEditComment}>수정</div>
                         &nbsp;·&nbsp;<div className='comment-header-button' onClick={() => this.setState(produce(this.state, draft => { draft.comments[i].isDeleteDialogOpened = true }))}>삭제</div>
                     </Fragment>}
@@ -253,7 +299,7 @@ class Post extends Component {
                     <div>
                         <TextField
                             id="standard-multiline-flexible"
-                            label={this.props.profile ? '답글을 입력하세요.' : '로그인 후 이용 가능합니다.'}
+                            label={this.props.profile ? '답글을 입력하세요.' : '로그인 후 답글을 작성할 수 있습니다.'}
                             multiline
                             value={this.state.comments[i].recommentText}
                             onChange={e => this.onRecommentTextChange(i, e.target.value)}
@@ -279,7 +325,7 @@ class Post extends Component {
                     <div style={{ fontWeight: 500, color: 'black', marginRight: '1em' }}>{recomment.recommentedBy.nickname}</div>
                     <div>{recomment.valid && moment(recomment.recommentedOn).fromNow()}</div>
                     {recomment.valid && recomment.modified && ` · 수정됨`}
-                    {recomment.valid && this.props.profile && recomment.recommentedBy.id === this.props.profile.id.toString() && <Fragment>
+                    {recomment.valid && this.props.profile && recomment.recommentedBy.id === this.props.profile.id && <Fragment>
                         &nbsp;·&nbsp;<div className='comment-header-button' onClick={this.onEditComment}>수정</div>
                         &nbsp;·&nbsp;<div className='comment-header-button' onClick={() => this.setState(produce(this.state, draft => { draft.comments[i].recomments[j].isDeleteDialogOpened = true }))}>삭제</div>
                     </Fragment>}
@@ -312,16 +358,21 @@ class Post extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         >
-        <DialogTitle id="alert-dialog-title">{"정말 삭제하시겠습니까?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title"><span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>정말 댓글을 삭제하시겠습니까?</span></DialogTitle>
+        <DialogContent>
+            <DialogContentText>
+                <span style={{ fontFamily: 'Noto Sans KR' }}>삭제한 댓글은 복구할 수 없습니다.</span>
+            </DialogContentText>
+        </DialogContent>
         <DialogActions>
-            <Button onClick={() => this.setState(state => produce(state, draft => { draft.comments[idx].isDeleteDialogOpened = false }))}>
-                아니오
+            <Button color="primary" onClick={() => this.setState(state => produce(state, draft => { draft.comments[idx].isDeleteDialogOpened = false }))}>
+                취소
             </Button>
-            <Button onClick={() => {
+            <Button color="primary" onClick={() => {
                 this.setState(state => produce(state, draft => { draft.comments[idx].isDeleteDialogOpened = false }))
                 this.onDeleteComment(idx)
             }} autoFocus>
-                예
+                삭제
             </Button>
         </DialogActions>
         </Dialog>
@@ -332,16 +383,21 @@ class Post extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         >
-        <DialogTitle id="alert-dialog-title">{"정말 삭제하시겠습니까?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">정말 답글을 삭제하시겠습니까?"</DialogTitle>
+        <DialogContent>
+            <DialogContentText>
+                삭제한 답글은 복구할 수 없습니다.
+            </DialogContentText>
+        </DialogContent>
         <DialogActions>
-            <Button onClick={() => this.setState(state => produce(state, draft => { draft.comments[cIdx].recomments[rcIdx].isDeleteDialogOpened = false }))}>
-                아니오
+            <Button color="primary" onClick={() => this.setState(state => produce(state, draft => { draft.comments[cIdx].recomments[rcIdx].isDeleteDialogOpened = false }))}>
+                취소
             </Button>
-            <Button onClick={() => {
+            <Button color="primary" onClick={() => {
                 this.setState(state => produce(state, draft => { draft.comments[cIdx].recomments[rcIdx].isDeleteDialogOpened = false }))
                 this.onDeleteRecomment(cIdx, rcIdx)
             }} autoFocus>
-                예
+                삭제
             </Button>
         </DialogActions>
         </Dialog>
