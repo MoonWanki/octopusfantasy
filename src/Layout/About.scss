@@ -1,24 +1,51 @@
-.about-page-wrapper {
-    height: 800px;
+.about-banner {
+    width: 100%;
+    height: 960px;
     background: url(../images/aboutbg.jpg) center no-repeat;
     background-size: cover;
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-        height: 400px;
-    }
-
-    .about-page-inner {
+    display: flex;
+    flex-direction: column;
     
+    @media screen and (max-width: 768px) { height: 480px; font-size: 0.5em; }
+
+    .about-banner-inner {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        box-sizing: border-box;
         color: white;
-        font-size: 3.5rem;
-        position: relative;
-        top: 45%;
-    
-        @media screen and (max-width: 768px) {
-            font-size: 2rem;
-        }
-        
+        font-size: 1.6em;
+        font-weight: 300;
+        padding: 0 30px;
     }
 }
 
+.about-crews {
+    max-width: 1200px;
+    margin: 3em auto;
+    display: flex;
+    flex-direction: column;
+
+    .about-crews-profile {
+        display: flex;
+        margin: 2em 0;
+
+        .about-crews-profile-avatar {
+            width: 240px;
+            height: 240px;
+            border-radius: 120px;
+            background: gray center no-repeat;
+            background-size: cover;
+        }
+
+        .about-crews-profile-content {
+            display: flex;
+            flex-direction: column;
+            padding: 2em;
+            .about-crews-profile-header {
+                font-weight: 500;
+                margin: 0.5em 0;
+            }
+        }
+    }
+}

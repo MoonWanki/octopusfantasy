@@ -132,7 +132,7 @@ class Post extends Component {
             this.setState({ isLikePending: true })
             const idx = this.state.likes.findIndex(id => id === this.props.profile.id)
             if(idx === -1) {
-                addLike(this.props.profile.id)
+                addLike(this.props.id)
                 .then(() => this.setState(state => produce(state, draft => {
                     draft.likes.push(this.props.profile.id)
                     draft.isLikePending = false
@@ -140,7 +140,7 @@ class Post extends Component {
                 .catch(err => this.setState({ isLikePending: false }))
             }
             else {
-                deleteLike(this.props.profile.id)
+                deleteLike(this.props.id)
                 .then(() => this.setState(state => produce(state, draft => {
                     draft.likes.splice(idx, 1)
                     draft.isLikePending = false
