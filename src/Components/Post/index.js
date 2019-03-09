@@ -385,7 +385,9 @@ class Post extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         >
-        <DialogTitle id="alert-dialog-title"><span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>정말 답글을 삭제하시겠습니까?"</span></DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+            <span style={{ fontFamily: 'Noto Sans KR', fontWeight: 500 }}>정말 답글을 삭제하시겠습니까?</span>
+        </DialogTitle>
         <DialogContent>
             <DialogContentText>
                 <span style={{ fontFamily: 'Noto Sans KR' }}>삭제한 답글은 복구할 수 없습니다.</span>

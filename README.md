@@ -9,7 +9,7 @@ Personal platform with UCC works and online game services by Moon Wanki.
   
 ## Products
 
-### Online game services
+### Services
 
 - **The Great Venus** - Turn-based Web RPG based on Ethereum platform  
 Official website | https://tgv.octopusfantasy.com  
