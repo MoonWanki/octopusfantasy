@@ -26,14 +26,16 @@
     display: flex;
     flex-direction: column;
 
+    @media screen and (max-width: 768px) { font-size: 0.4em; }
+
     .about-crews-profile {
         display: flex;
         margin: 2em 0;
 
         .about-crews-profile-avatar {
-            width: 240px;
-            height: 240px;
-            border-radius: 120px;
+            width: 16em;
+            height: 16em;
+            border-radius: 8em;
             background: gray center no-repeat;
             background-size: cover;
         }

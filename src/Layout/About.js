@@ -50,8 +50,8 @@ class About extends Component {
                                     2013.2&emsp;안산강서고등학교 졸업<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
                                     2014.6 ~ 2016.6&emsp;공군 제10전투비행단 서버실 근무<br />
-                                    2018.6 ~ 2018.8&emsp;(주)Quram 근무<br />
-                                    2018.12 ~2019.2&emsp;(주)Kidsoft 근무<br />
+                                    2018.6 ~ 2018.8&emsp;㈜ Quram 근무<br />
+                                    2018.12 ~2019.2&emsp;㈜ Kidsoft 근무<br />
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ class About extends Component {
                                     1993.4&emsp;출생<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
                                     2014.10 ~ 2016.7 &emsp;대한민국 청와대 대통령실 경호처 제1경비단 근무<br />
-                                    2019.3 ~&emsp;LG CNS 근무<br />
+                                    2019.3 ~&emsp;㈜ LG CNS 근무<br />
                                 </div>
                             </div>
                         </div>
@@ -80,6 +80,7 @@ class About extends Component {
                                 <div className='about-crews-profile-text'>
                                     1994.3&emsp;출생<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
+                                    2019.4 ~&emsp;NAVER Search&amp;Clova 근무<br />
                                 </div>
                             </div>
                         </div>
