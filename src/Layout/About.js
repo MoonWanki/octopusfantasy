@@ -51,7 +51,8 @@ class About extends Component {
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
                                     2014.6 ~ 2016.6&emsp;공군 제10전투비행단 서버실 근무<br />
                                     2018.6 ~ 2018.8&emsp;㈜ Quram 근무<br />
-                                    2018.12 ~2019.2&emsp;㈜ Kidsoft 근무<br />
+                                    2018.12 ~ 2019.2&emsp;㈜ Kidsoft 근무<br />
+                                    2019.5 ~&emsp;SK주식회사 C&amp;C 근무<br />
                                 </div>
                             </div>
                         </div>
@@ -80,7 +81,8 @@ class About extends Component {
                                 <div className='about-crews-profile-text'>
                                     1994.3&emsp;출생<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
-                                    2019.4 ~&emsp;NAVER Search&amp;Clova 근무<br />
+                                    2015.03 ~ 2016.12 &emsp;대한민국 육군 제 12 보병사단 근무<br />
+                                    2019.4 ~&emsp;NAVER Search&amp;Clova(Data Engineer) 근무<br />
                                 </div>
                             </div>
                         </div>
