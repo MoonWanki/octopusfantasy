@@ -47,12 +47,12 @@ class About extends Component {
                                 <div className='about-crews-profile-header'><span style={{ fontSize: '1.4em' }}>Moon Wanki <span style={{ color: 'lightgray' }}>|</span></span> Owner</div>
                                 <div className='about-crews-profile-text'>
                                     1994.4&emsp;출생<br />
-                                    2013.2&emsp;안산강서고등학교 졸업<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
                                     2014.6 ~ 2016.6&emsp;공군 제10전투비행단 서버실 근무<br />
                                     2018.6 ~ 2018.8&emsp;㈜ Quram 근무<br />
                                     2018.12 ~ 2019.2&emsp;㈜ Kidsoft 근무<br />
                                     2019.5 ~&emsp;SK주식회사 C&amp;C 근무<br />
+                                    2019.8 ~&emsp;삼성전자 무선사업부 근무<br />
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ class About extends Component {
                                     1993.4&emsp;출생<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
                                     2014.10 ~ 2016.7 &emsp;대한민국 청와대 대통령실 경호처 제1경비단 근무<br />
-                                    2019.3 ~&emsp;㈜ LG CNS 근무<br />
+                                    2019.3 ~&emsp;LG CNS 근무<br />
                                 </div>
                             </div>
                         </div>
@@ -81,8 +81,9 @@ class About extends Component {
                                 <div className='about-crews-profile-text'>
                                     1994.3&emsp;출생<br />
                                     2013.3&emsp;아주대학교 미디어학과 입학<br />
-                                    2015.03 ~ 2016.12 &emsp;대한민국 육군 제 12 보병사단 근무<br />
-                                    2019.4 ~&emsp;NAVER Search&amp;Clova(Data Engineer) 근무<br />
+                                    2015.3 ~ 2016.12 &emsp;대한민국 육군 제 12 보병사단 근무<br />
+                                    2019.4 ~ 2019.7 &emsp;NAVER Search&amp;Clova(Data Engineer) 근무<br />
+                                    2019.7 ~&emsp;매그니스 근무<br />
                                 </div>
                             </div>
                         </div>
