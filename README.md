@@ -1,8 +1,8 @@
 # Octopus Fantasy
 
-[![React](https://img.shields.io/badge/React-v16.8.3-00A8E0.svg?style=flat-square&logo=React)](https://reactjs.org/)
-[![Redux](https://img.shields.io/badge/Redux-v4.0.1-764ABC.svg?style=flat-square&logo=Redux)](https://redux.js.org/)
-[![MaterialUI](https://img.shields.io/badge/Material--UI-v3.9.2-ee59a4.svg?style=flat-square)](https://material-ui.com/)
+[![React](https://img.shields.io/badge/React-v17.0.2-00A8E0.svg?style=flat-square&logo=React)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/Redux-v4.0.5-764ABC.svg?style=flat-square&logo=Redux)](https://redux.js.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-v4.2.4-3178C6.svg?style=flat-square&logo=TypeScript)](https://www.typescriptlang.org/)
 
 **https://www.octopusfantasy.com**  
 Personal platform with UCC works and online game services by Moon Wanki.  
@@ -37,14 +37,14 @@ Video works with gameplay.
 - **ReactJS** | https://reactjs.org  
 Top 1 Front-End library.  
 
-- **Material-UI** | https://material-ui.com  
-Top 1 UI library for React app.  
-
 - **Redux** | https://redux.js.org  
 For state management in React app.  
 
-- **Redux Promise Middleware** | https://github.com/pburtchaell/redux-promise-middleware  
-Simple and robust async action creators in Redux.  
+- **Material-UI** | https://material-ui.com  
+Top 1 UI library for React app.  
+
+- **Redux Thunk** | https://github.com/reduxjs/redux-thunk  
+Thunk middleware for Redux.  
 
 - **Immer** | https://github.com/mweststrate/immer  
 For create immutable object concisely.  

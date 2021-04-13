@@ -40,6 +40,18 @@
             background-size: cover;
         }
 
+        .about-crews-profile-avatar-owner {
+            background-image: url(../images/crew_owner.jpg);
+        }
+
+        .about-crews-profile-avatar-jamlee {
+            background-image: url(../images/crew_jamlee.jpg);
+        }
+
+        .about-crews-profile-avatar-aibees {
+            background-image: url(../images/crew_aibees.jpg);
+        }
+
         .about-crews-profile-content {
             display: flex;
             flex-direction: column;

@@ -1,17 +1,12 @@
-import React, { Fragment, useState } from 'react'
-import Icon from '@material-ui/core/Icon'
-import IconButton from '@material-ui/core/IconButton'
-import { ProfileZone } from 'Components'
-import { Link } from 'react-router-dom'
-import './MobileHeader.scss'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import Divider from '@material-ui/core/Divider'
+import React, { Fragment, useState } from 'react';
+import { Icon, IconButton, ListItem, ListItemIcon, ListItemText, Divider } from '@material-ui/core';
+import { ProfileZone } from '~/components';
+import { Link } from 'react-router-dom';
+import './MobileHeader.scss';
 
-export default () => {
-
-    const [ sidebarOn, setSidebarOn ] = useState(false)
+export default function MobileHeader()
+{
+    const [ sidebarOn, setSidebarOn ] = useState(false);
 
     return (
         <Fragment>
@@ -20,7 +15,7 @@ export default () => {
                     <Icon style={{ fontSize: 20 }} >{sidebarOn ? 'close' : 'menu'}</Icon>
                 </IconButton>
                 <Link to='/'><div className='mobile-header-logo' /></Link>
-                <ProfileZone mobile />
+                <ProfileZone mobile={true} />
             </div>
             <div className='mobile-header-drawer' style={{ top: sidebarOn ? 44 : '-140%' }}>
                 <Divider />
@@ -81,5 +76,5 @@ export default () => {
                 <Divider />
             </div>
         </Fragment>
-    )
+    );
 }

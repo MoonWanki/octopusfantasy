@@ -2,6 +2,7 @@
     width: 100%;
     background: gray center no-repeat;
     background-size: cover;
+    background-image: url(../images/post_banner_default.jpg);
 
     .post-scroller-banner-inner {
         position: relative;
@@ -24,7 +25,7 @@
             font-weight: 500;
         }
 
-        .post-scroller-banner-text {
+        .post-scroller-banner-description {
             position: absolute;
             color: white;
             bottom: 1em;
@@ -32,4 +33,20 @@
             font-weight: 300;
         }
     }
+}
+
+.post-scroller-banner-music {
+    background-image: url(../images/post_banner_music.jpg);
+}
+
+.post-scroller-banner-entertainment {
+    background-image: url(../images/post_banner_entertainment.jpg);
+}
+
+.post-scroller-banner-daigasso {
+    background-image: url(../images/post_banner_daigasso.jpg);
+}
+
+.post-scroller-banner-gamevideo {
+    background-image: url(../images/post_banner_gamevideo.jpg);
 }
