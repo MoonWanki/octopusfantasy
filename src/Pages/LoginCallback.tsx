@@ -1,8 +1,8 @@
 import React from 'react';
-import { RouteComponentProps} from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import qs from 'qs';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { requestSignIn } from '~/api/authApi';
+import { Loading } from '~/components';
 
 interface Props extends RouteComponentProps {}
 
@@ -34,11 +34,6 @@ export default function LoginCallback(props: Props)
     });
 
     return (
-        <div>
-            <div style={{ display: 'table-cell', verticalAlign: 'middle', textAlign: 'center' }}>
-                <CircularProgress />
-                <p style={{ color: 'gray', marginTop: '24px' }}>로그인 중입니다. 잠시만 기다려주세요</p>
-            </div>
-        </div>
+        <Loading message={'로그인 중입니다...'} />
     );
 }
