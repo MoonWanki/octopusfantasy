@@ -2,7 +2,7 @@
 
     width: 100vw;
     height: 100vh;
-    background: url(../images/loginbg.jpg) center no-repeat lightgray;
+    background: url(../assets/images/background_login.jpg) center no-repeat lightgray;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@
         .login-page-home-button {
             width: 200px;
             height: 60px;
-            background: url(../images/logo_white.png) center no-repeat;
+            background: url(../assets/images/logo_white.png) center no-repeat;
             background-size: cover;
         }
 
@@ -38,24 +38,18 @@
                 background-size: contain;
             }
 
-            .login-button-naver  {
-                background-image: url(../images/naverlogin.png);
-                &:hover {
-                    background-image: url(../images/naverlogin_hover.png);
-                }
+            .login-button-naver {
+                background-image: url(../assets/images/button_login_naver.png);
             }
 
-            .login-button-kakao  {
-                background-image: url(../images/kakaologin.png);
-                &:hover {
-                    background-image: url(../images/kakaologin_hover.png);
-                }
+            .login-button-kakao {
+                background-image: url(../assets/images/button_login_kakao.png);
             }
         }
     }
     
     @media screen and (max-width: 768px) {
-        background-image: url(../images/loginbg_mobile.jpg);
+        background-image: url(../assets/images/background_login_mobile.jpg);
 
         .login-page-inner {
             height: 160px;

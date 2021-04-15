@@ -1,14 +1,7 @@
 import produce from 'immer';
 import { createAsyncAction, createReducer } from 'typesafe-actions';
 import { requestProfile } from '~/api/authApi';
-
-export interface UserProfile
-{
-    id: string,
-    nickname: string,
-    email: string,
-    profileImage: string,
-}
+import { UserProfile } from '~/types/user';
 
 interface UserState
 {

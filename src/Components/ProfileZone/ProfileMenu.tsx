@@ -1,9 +1,7 @@
 import React, { Fragment, useState, useCallback } from 'react'
-import { useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { requestSignOut } from '~/api/authApi';
 import { ClickAwayListener, Grow, IconButton, Paper, Popper, ListItem, ListItemIcon, ListItemText, Icon, Divider, Avatar, ListItemAvatar } from '@material-ui/core'
-import { UserProfile } from '~/store/reducers/user';
+import { UserProfile } from '~/types/user';
 
 interface Props
 {

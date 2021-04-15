@@ -40,12 +40,17 @@ module.exports = {
                 loader: "file-loader",
             },
             {
+                test: /\.(mp4)$/,
+                loader: "file-loader",
+            },
+            {
                 test: /\.(ttf|otf|woff|woff2|eor)$/,
                 loader: "file-loader",
             },
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             "process.env": JSON.stringify(dotenv.parsed),
         }),
@@ -56,7 +61,6 @@ module.exports = {
             showErrors: true,
             favicon: 'public/favicon.ico',
         }),
-        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
         new ForkTsCheckerWebpackPlugin(),
     ],

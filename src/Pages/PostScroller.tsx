@@ -3,7 +3,12 @@ import { RouteComponentProps } from 'react-router-dom';
 import { Header, Footer, PostView } from '~/components';
 import { loadPostsByType, loadPostById } from '~/api/postApi';
 import { CircularProgress } from '@material-ui/core';
-import { Post } from '~/components/PostView';
+import { Post } from '~/types/post';
+import bannerImageDefault from '~/assets/images/post_banner_default.jpg';
+import bannerImageMusic from '~/assets/images/post_banner_music.jpg';
+import bannerImageEntertainment from '~/assets/images/post_banner_entertainment.jpg';
+import bannerImageDaigasso from '~/assets/images/post_banner_daigasso.jpg';
+import bannerImageGamevideo from '~/assets/images/post_banner_gamevideo.jpg';
 import './PostScroller.scss';
 
 type PostType = 'music'|'entertainment'|'daigasso'|'gamevideo';
@@ -12,33 +17,33 @@ function renderBanner(postType: PostType): ReactElement
 {
     let title = '';
     let description = '';
-    let bannerClassName = '';
+    let bannerImage = bannerImageDefault;
     if(postType == 'music')
     {
         title = 'Music Works';
         description = '자작곡 및 뮤직비디오';
-        bannerClassName = 'post-scroller-banner-music';
+        bannerImage = bannerImageMusic;
     }
     else if(postType == 'entertainment')
     {
         title = 'Entertainments';
         description = '흑역사가 넘쳐나는 UCC 영상들';
-        bannerClassName = 'post-scroller-banner-entertainment';
+        bannerImage = bannerImageEntertainment;
     }
     else if(postType == 'daigasso')
     {
         title = 'Daigasso! DX';
         description = '대합주! 밴드 브라더스 DX 작품 모음';
-        bannerClassName = 'post-scroller-banner-daigasso';
+        bannerImage = bannerImageDaigasso;
     }
     else if(postType == 'gamevideo')
     {
         title = 'Game Videos';
         description = '각종 게임 플레이 영상 모음';
-        bannerClassName = 'post-scroller-banner-gamevideo';
+        bannerImage = bannerImageGamevideo;
     }
     return (
-        <div className={`post-scroller-banner ${bannerClassName}`}>
+        <div className='post-scroller-banner' style={{ backgroundImage: `url(${bannerImage})` }}>
             <div className='post-scroller-banner-inner'>
                 <div className='post-scroller-banner-title'>{title}</div>
                 <div className='post-scroller-banner-description'>{description}</div>

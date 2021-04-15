@@ -1,6 +1,9 @@
 import React, { ReactElement, Fragment, useEffect } from 'react';
 import { Header, Footer } from '~/components';
 import { Fade } from 'react-awesome-reveal';
+import crewImageOwner from '~/assets/images/crew_owner.jpg';
+import crewImageJamlee from '~/assets/images/crew_jamlee.jpg';
+import crewImageAibees from '~/assets/images/crew_aibees.jpg';
 import './About.scss';
 
 export default function About(): ReactElement {
@@ -36,7 +39,7 @@ export default function About(): ReactElement {
             </div>
             <div className='about-crews'>
                 <div className='about-crews-profile'>
-                    <div className='about-crews-profile-avatar about-crews-profile-avatar-owner' />
+                    <div className='about-crews-profile-avatar' style={{ backgroundImage: `url(${crewImageOwner})` }} />
                     <div className='about-crews-profile-content'>
                         <div className='about-crews-profile-header'><span style={{ fontSize: '1.4em' }}>Moon Wanki <span style={{ color: 'lightgray' }}>|</span></span> Owner</div>
                         <div className='about-crews-profile-text'>
@@ -52,7 +55,7 @@ export default function About(): ReactElement {
                 </div>
 
                 <div className='about-crews-profile' style={{ alignSelf: 'flex-end'}}>
-                    <div className='about-crews-profile-avatar about-crews-profile-avatar-jamlee' />
+                    <div className='about-crews-profile-avatar' style={{ backgroundImage: `url(${crewImageJamlee})` }} />
                     <div className='about-crews-profile-content'>
                         <div className='about-crews-profile-header'><span style={{ fontSize: '1.4em' }}>Jamlee <span style={{ color: 'lightgray' }}>|</span></span> Coworker</div>
                         <div className='about-crews-profile-text'>
@@ -65,7 +68,7 @@ export default function About(): ReactElement {
                 </div>
 
                 <div className='about-crews-profile'>
-                    <div className='about-crews-profile-avatar about-crews-profile-avatar-aibees' />
+                    <div className='about-crews-profile-avatar' style={{ backgroundImage: `url(${crewImageAibees})` }} />
                     <div className='about-crews-profile-content'>
                         <div className='about-crews-profile-header'><span style={{ fontSize: '1.4em' }}>Junseo Park <span style={{ color: 'lightgray' }}>|</span></span> Coworker</div>
                         <div className='about-crews-profile-text'>

@@ -6,49 +6,10 @@ import { loadPostById, addComment,/* editComment,*/ deleteComment, addRecomment,
 import moment from 'moment';
 import produce from 'immer';
 import { RootState } from '~/store';
-import { UserProfile } from '~/store/reducers/user';
+import { Post, Comment } from '~/types/post';
 import './index.scss';
 
 moment.locale('ko', require('moment/locale/ko'));
-
-interface Comment
-{
-    _id: string,
-    uid: string,
-    commentedOn: Date,
-    commentedBy: {
-        uid: string,
-        nickname: string,
-        email: string,
-        profileImage: string,
-    },
-    text: string,
-    valid: boolean,
-    modified: boolean,
-    recomments: Array<Recomment>,
-}
-
-interface Recomment
-{
-    _id: string,
-    uid: string,
-    recommentedOn: Date,
-    text: string,
-    valid: boolean,
-    modified: boolean,
-}
-
-export interface Post
-{
-    id: number,
-    type: string,
-    title: string,
-    postedOn: string,
-    likes: string[],
-    comments: Array<Comment>,
-    image: string,
-    video: string,
-}
 
 interface Props
 {
