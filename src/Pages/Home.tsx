@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Header, Footer, Carousel } from '~/components';
+import { Header, Footer, VideoBanner } from '~/components';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 
@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <div>
             <Header />
-            <Carousel />
+            <VideoBanner />
             <div className='home-quick-link'>
                 <Link to='/music' className='home-quick-link-item' style={{ background: '#473d80'}}>
                     <span className='home-quick-link-item-text'>MUSIC WORKS</span>
