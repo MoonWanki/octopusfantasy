@@ -1,33 +1,137 @@
-.home-quick-link {
-    max-width: 1200px;
-    margin: 80px auto;
-    display: flex;
-    justify-content: space-between;
+.home-enjoy-zone {
+    position: relative;
+    font-weight: 300;
+    margin-top: 6em;
+    @media screen and (max-width: 768px) { margin-top: 3em; }
 
-    .home-quick-link-item {
-        width: 280px;
-        height: 280px;
-        color: white;
-        display: table;
+    .home-enjoy-zone-title {
+        text-align: center;
+        font-size: 4em;
+        padding: 40px;
         box-sizing: border-box;
+        @media screen and (max-width: 768px) { font-size: 2em; padding: 20px; }
+    }
 
-        @media screen and (max-width: 768px) {
-            width: 120px;
-            height: 120px;
-            font-size: 0.5em;
+    .home-enjoy-zone-link-container {
+        position: relative;
+        height: 40vw;
+        max-height: 640px;
+
+        .home-enjoy-zone-link-button {
+            position: absolute;
+            width: 100%;
+            height: 37vw;
+            max-height: 500px;
+            background-size: contain;
+            background-position-y: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 1;
+
+            &:hover {
+                opacity: .95;
+            }
+            
+            .home-enjoy-zone-link-button-text {
+                color: white;
+                margin: 24px 40px;
+                display: flex;
+                flex-direction: column;
+                @media screen and (max-width: 768px) { margin: 12px 20px; }
+
+                .home-enjoy-zone-link-button-text-title {
+                    font-size: 2.4em;
+                    font-weight: 500;
+                    @media screen and (max-width: 768px) { font-size: 1em; }
+                }
+    
+                .home-enjoy-zone-link-button-text-description {
+                    font-size: 1.2em;
+                    font-weight: 300;
+                    @media screen and (max-width: 768px) { font-size: 0.5em; }
+                }
+            }
         }
 
-        &:hover {
-            border: 0.5em solid rgba($color: white, $alpha: 0.3);
+        .home-enjoy-zone-link-button-left {
+            clip-path: polygon(0% 0%, 55% 0%, 44% 100%, 0% 100%);
+            background-position-x: left;
+            background-image: url(../assets/images/home_enjoy_zone_tgv.jpg);
         }
 
-        .home-quick-link-item-text {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            font-size: 1.4em;
-            font-weight: 500;
+        .home-enjoy-zone-link-button-right {
+            clip-path: polygon(56% 0%, 100% 0%, 100% 100%, 45% 100%);
+            background-position-x: right;
+            background-image: url(../assets/images/home_enjoy_zone_mahjong.jpg);
+            align-items: flex-end;
+        }
+    }
+}
+
+.home-quick-link-area {
+    width: 100vw;
+    background: rgb(20, 24, 40);
+    margin: 40px 0 120px;
+
+    .home-quick-link-inner {
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        @media screen and (max-width: 768px) { padding: 30px 10px; }
+
+        .home-quick-link-description {
+            font-size: 3em;
+            font-weight: 300;
+            flex: 1;
+            @media screen and (max-width: 768px) { font-size: 1.5em; }
         }
 
+        .home-quick-link-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8px;
+            flex: 2;
+
+            .home-quick-link-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex: 1;
+
+                .home-quick-link-button {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 120px;
+                    flex: 1;
+                    margin: 4px;
+                    opacity: .9;
+                    @media screen and (max-width: 768px) { width: 160px; height: 60px; font-size: 0.5em; }
+                    &:hover { opacity: 1; outline: 1px solid rgba(255, 255, 255, .7); }
+
+                    .home-quick-link-button-image {
+                        background: gray center no-repeat;
+                        background-size: cover;
+                        flex: 3;
+                    }
+
+                    .home-quick-link-button-name {
+                        font-weight: 500;
+                        color: white;
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        padding-left: 8px;
+                    }
+                }
+            }
+        }
     }
 }
