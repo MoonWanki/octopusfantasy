@@ -15,7 +15,7 @@ export default function Home()
 
     const onVideoBannerLoaded = useCallback(() => {
         setVideoBannerLoaded(true);
-    }, [])
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);

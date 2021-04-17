@@ -8,8 +8,8 @@ const PostScroller = lazy(() => import('~/pages/PostScroller'));
 const LoginCallback = lazy(() => import('~/pages/LoginCallback'));
 const NotFound = lazy(() => import('~/pages/NotFound'));
 import { useDispatch } from 'react-redux';
-import { fetchUser } from './store/reducers/user';
-import { Loading } from './components';
+import { fetchUser } from '~/store/reducers/user';
+import { Loading } from '~/components';
 
 export default function App()
 {
