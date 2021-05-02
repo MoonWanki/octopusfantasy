@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import Player from 'react-player/lazy';
 import video from '~/assets/videos/home_banner_video.mp4';
 import { Fade } from 'react-awesome-reveal';
+import { Loading } from '~/components';
 import './index.scss';
 
 interface Props
@@ -23,17 +24,16 @@ export default function VideoBanner({ onLoaded }: Props)
 
     return (
         <div className='video-banner-wrapper'>
-            <Fade triggerOnce>
-                <Player
-                    url={video}
-                    playing={true}
-                    loop={true}
-                    muted={true}
-                    width='100%'
-                    height=''
-                    onBufferEnd={onVideoBufferEnd}
-                />
-            </Fade>
+            <Player
+                url={video}
+                playing={true}
+                loop={true}
+                muted={true}
+                width='100%'
+                height=''
+                onBufferEnd={onVideoBufferEnd}
+                fallback={<Loading message='홈 화면을 로딩 중입니다...' />}
+            />
             {isVideoBufferEnd &&
                 <div className='video-banner-inner'>
                     <div className='video-banner-inner-image'></div>
