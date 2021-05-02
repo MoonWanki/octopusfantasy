@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useCallback } from 'react'
+import React, { Fragment, useState, useCallback, useRef, useEffect } from 'react'
 import { requestSignOut } from '~/api/authApi';
 import { ClickAwayListener, Grow, IconButton, Paper, Popper, ListItem, ListItemIcon, ListItemText, Icon, Divider, Avatar, ListItemAvatar } from '@material-ui/core'
 import { UserProfile } from '~/types/user';
@@ -11,7 +11,8 @@ interface Props
 
 export default function ProfileMenu(props: Props)
 {
-    const [ profileMenuOpen, setProfilfeMenuOpen ] = useState<boolean>(false);
+    const [ isProfileMenuOpened, setProfilfeMenuOpened ] = useState<boolean>(false);
+    const anchorRef = useRef<HTMLButtonElement>(null);
 
     const handleSignOut = useCallback(() => {
         requestSignOut()
@@ -21,21 +22,39 @@ export default function ProfileMenu(props: Props)
     }, []);
 
     const handleToggle = useCallback(() => {
-        setProfilfeMenuOpen(!profileMenuOpen);
-    }, []);
+        setProfilfeMenuOpened(!isProfileMenuOpened);
+    }, [isProfileMenuOpened]);
     
-    const handleClose = useCallback(() => {
-        setProfilfeMenuOpen(false);
+    const handleClose = useCallback((event: React.MouseEvent<EventTarget>) => {
+        console.log('handleClose() calloed')
+        if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement))
+        {
+            return;
+        }
+        setProfilfeMenuOpened(false);
     }, []);
+
+    const prevOpen = useRef(isProfileMenuOpened);
+
+    useEffect(() => {
+        if (prevOpen.current == true && isProfileMenuOpened == false)
+        {
+          anchorRef.current!.focus();
+        }
+        prevOpen.current = isProfileMenuOpened;
+    }, [isProfileMenuOpened]);
 
     return (
         <div>
             <IconButton
+                ref={anchorRef}
+                aria-controls={isProfileMenuOpened ? 'menu-list-grow' : undefined}
+                aria-haspopup="true"
                 onClick={handleToggle}
                 style={props.mobile ? { width: 30, height: 30, padding: 0, margin: 10 } : { width: 40, height: 40, padding: 0 }} >
                 <Avatar alt="profile_image" src={props.profile.profileImage} style={props.mobile ? { width: 30, height: 30 } : { width: 40, height: 40 }}/>
             </IconButton>
-            <Popper open={profileMenuOpen} transition disablePortal placement='bottom-end'>
+            <Popper open={isProfileMenuOpened} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                 {({ TransitionProps, placement }) => (
                 <Grow
                     {...TransitionProps}
@@ -43,7 +62,7 @@ export default function ProfileMenu(props: Props)
                 >
                     <Paper>
                         <ClickAwayListener onClickAway={handleClose}>
-                            <Fragment>
+                            <div id='menu-list-grow'>
                                 <ListItem>
                                     <ListItemAvatar>
                                         <Avatar alt="profile_image" src={props.profile.profileImage} />
@@ -57,7 +76,7 @@ export default function ProfileMenu(props: Props)
                                     </ListItemIcon>
                                     <ListItemText primary="LOGOUT" />
                                 </ListItem>
-                            </Fragment>
+                            </div>
                         </ClickAwayListener>
                     </Paper>
                 </Grow>
