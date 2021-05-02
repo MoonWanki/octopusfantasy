@@ -23,18 +23,18 @@ export default function Home()
 
     return (
         <div style={{ overflow: 'hidden' }}>
-            <Header />
+            {isVideoBannerLoaded && <Header />}
             <VideoBanner onLoaded={onVideoBannerLoaded} />
             {isVideoBannerLoaded &&
                 <Fragment>
                     <div className='home-enjoy-zone'>
-                        <Fade triggerOnce direction='up' delay={500} cascade>
+                        <Fade triggerOnce direction='up' delay={200} cascade>
                             <div className='home-enjoy-zone-title'>
                                 Wanna <span style={{ fontWeight: 500 }}>Enjoy</span>?
                             </div>
                         </Fade>
                         <div className='home-enjoy-zone-link-container'>
-                            <Fade triggerOnce direction='left' delay={700}>
+                            <Fade triggerOnce direction='left' delay={400}>
                                 <a href={'https://tgv.octopusfantasy.com'} className='home-enjoy-zone-link-button home-enjoy-zone-link-button-left'>
                                     <div className='home-enjoy-zone-link-button-text'>
                                         <div className='home-enjoy-zone-link-button-text-title'>
@@ -46,7 +46,7 @@ export default function Home()
                                     </div>
                                 </a>
                             </Fade>
-                            <Fade triggerOnce direction='right' delay={700}>
+                            <Fade triggerOnce direction='right' delay={400}>
                                 <a href={'https://mahjong.octopusfantasy.com'} className='home-enjoy-zone-link-button home-enjoy-zone-link-button-right'>
                                     <div className='home-enjoy-zone-link-button-text' style={{ alignItems: 'flex-end' }}>
                                         <div className='home-enjoy-zone-link-button-text-title'>

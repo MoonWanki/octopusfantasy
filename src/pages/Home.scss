@@ -72,7 +72,7 @@
 .home-quick-link-area {
     width: 100vw;
     background: rgb(20, 24, 40);
-    margin: 40px 0 120px;
+    margin: 60px 0 120px;
 
     .home-quick-link-inner {
         max-width: 1200px;
@@ -89,7 +89,7 @@
             font-size: 3em;
             font-weight: 300;
             flex: 1;
-            @media screen and (max-width: 768px) { font-size: 1.5em; }
+            @media screen and (max-width: 768px) { font-size: 1.4em; }
         }
 
         .home-quick-link-container {
@@ -113,7 +113,7 @@
                     flex: 1;
                     margin: 4px;
                     opacity: .9;
-                    @media screen and (max-width: 768px) { width: 160px; height: 60px; font-size: 0.5em; }
+                    @media screen and (max-width: 768px) { height: 60px; font-size: 0.5em; }
                     &:hover { opacity: 1; outline: 1px solid rgba(255, 255, 255, .7); }
 
                     .home-quick-link-button-image {
