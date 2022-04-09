@@ -20,7 +20,7 @@
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "immer": "^9.0.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "qs": "^6.10.1",
     "react": "^17.0.2",
     "react-awesome-reveal": "^3.4.0",
